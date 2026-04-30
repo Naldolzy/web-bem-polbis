@@ -5,9 +5,10 @@ use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 use App\Http\Controllers\Admin\MisiController;
 use App\Http\Controllers\Admin\OrmawaController;
-use App\Http\Controllers\Admin\StrukturController as AdminStrukturController;
 use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\StrukturController as AdminStrukturController;
 use App\Http\Controllers\PublicController;
+use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // ========================
@@ -20,7 +21,7 @@ Route::get('/kegiatan/{slug}', [PublicController::class, 'kegiatanDetail'])->nam
 Route::get('/struktur', [PublicController::class, 'struktur'])->name('struktur');
 Route::get('/ormawa', [PublicController::class, 'ormawa'])->name('ormawa');
 Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
-Route::get('/sitemap.xml', [\App\Http\Controllers\SitemapController::class, 'index'])->name('sitemap');
+Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // ========================
 // ADMIN ROUTES (HIDDEN URL)

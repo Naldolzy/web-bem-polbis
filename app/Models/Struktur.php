@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 
 class Struktur extends Model
@@ -18,18 +20,23 @@ class Struktur extends Model
 
     protected $casts = [
         'is_active' => 'boolean',
-        'urutan' => 'integer',
+        'urutan'    => 'integer',
     ];
 
-    public function getFotoUrlAttribute(): string
+    /**
+     * Modern Laravel 9+ accessor using Attribute cast.
+     */
+    protected function fotoUrl(): Attribute
     {
-        if ($this->foto) {
-            return asset('storage/' . $this->foto);
-        }
-        return asset('images/avatar-default.png');
+        return Attribute::get(fn () => $this->foto
+            ? asset('storage/' . $this->foto)
+            : asset('images/avatar-default.png'));
     }
 
-    public function scopeActive($query)
+    /**
+     * Scope for active struktur. Type-hinted for Laravel 13 compatibility.
+     */
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true)->orderBy('urutan');
     }

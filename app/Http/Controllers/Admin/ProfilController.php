@@ -5,19 +5,28 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\ProfilBem;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class ProfilController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $profil = ProfilBem::getAllAsArray();
         $misi   = \App\Models\BemMisi::getAllOrdered();
         return view('admin.profil.index', compact('profil', 'misi'));
     }
 
-    public function update(Request $request)
+    public function update(Request $request): RedirectResponse
     {
+        // Validate file uploads upfront (before saving text fields)
+        $request->validate([
+            'logo_bem'    => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:10240',
+            'logo_kampus' => 'nullable|image|mimes:jpg,jpeg,png,webp,svg|max:10240',
+            'foto_ketua'  => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+        ]);
+
         $fields = [
             'nama_bem', 'nama_kampus', 'periode', 'ketua_bem',
             'sambutan_ketua', 'visi',
@@ -30,24 +39,21 @@ class ProfilController extends Controller
 
         // Handle logo BEM upload
         if ($request->hasFile('logo_bem')) {
-            $request->validate(['logo_bem' => 'image|mimes:jpg,jpeg,png,webp,svg|max:10240']);
-            $old = ProfilBem::get('logo_bem');
+            $old = ProfilBem::getValue('logo_bem');
             if ($old) Storage::disk('public')->delete($old);
             ProfilBem::set('logo_bem', $request->file('logo_bem')->store('profil', 'public'));
         }
 
         // Handle logo kampus upload
         if ($request->hasFile('logo_kampus')) {
-            $request->validate(['logo_kampus' => 'image|mimes:jpg,jpeg,png,webp,svg|max:10240']);
-            $old = ProfilBem::get('logo_kampus');
+            $old = ProfilBem::getValue('logo_kampus');
             if ($old) Storage::disk('public')->delete($old);
             ProfilBem::set('logo_kampus', $request->file('logo_kampus')->store('profil', 'public'));
         }
 
         // Handle foto ketua upload
         if ($request->hasFile('foto_ketua')) {
-            $request->validate(['foto_ketua' => 'image|mimes:jpg,jpeg,png,webp|max:10240']);
-            $old = ProfilBem::get('foto_ketua');
+            $old = ProfilBem::getValue('foto_ketua');
             if ($old) Storage::disk('public')->delete($old);
             ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil', 'public'));
         }
@@ -55,14 +61,14 @@ class ProfilController extends Controller
         return back()->with('success', 'Profil BEM berhasil diperbarui!');
     }
 
-    public function hapusFoto(string $key)
+    public function hapusFoto(string $key): RedirectResponse
     {
         $allowed = ['logo_bem', 'logo_kampus', 'foto_ketua'];
         if (!in_array($key, $allowed)) {
             abort(404);
         }
 
-        $path = ProfilBem::get($key);
+        $path = ProfilBem::getValue($key);
         if ($path) {
             Storage::disk('public')->delete($path);
         }

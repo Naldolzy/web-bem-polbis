@@ -15,7 +15,7 @@
         <aside class="admin-sidebar" id="sidebar">
             <div class="p-6">
                 <!-- Logo -->
-                @php $logo_bem_admin = \App\Models\ProfilBem::get('logo_bem'); @endphp
+                @php $logo_bem_admin = \App\Models\ProfilBem::getValue('logo_bem'); @endphp
                 <div class="flex items-center gap-3 mb-8">
                     @if($logo_bem_admin)
                         <img src="{{ asset('storage/' . $logo_bem_admin) }}" alt="Logo BEM"

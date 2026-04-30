@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 
@@ -20,28 +22,35 @@ class Kegiatan extends Model
 
     protected $casts = [
         'tanggal_kegiatan' => 'date',
-        'is_published' => 'boolean',
+        'is_published'     => 'boolean',
     ];
 
-    protected static function boot()
+    /**
+     * Use booted() instead of boot() as per Laravel 11+ convention.
+     */
+    protected static function booted(): void
     {
-        parent::boot();
-        static::creating(function ($kegiatan) {
+        static::creating(function (self $kegiatan) {
             if (empty($kegiatan->slug)) {
                 $kegiatan->slug = Str::slug($kegiatan->judul) . '-' . time();
             }
         });
     }
 
-    public function getFotoUrlAttribute(): string
+    /**
+     * Modern Laravel 9+ accessor using Attribute cast.
+     */
+    protected function fotoUrl(): Attribute
     {
-        if ($this->foto) {
-            return asset('storage/' . $this->foto);
-        }
-        return asset('images/kegiatan-default.jpg');
+        return Attribute::get(fn () => $this->foto
+            ? asset('storage/' . $this->foto)
+            : asset('images/kegiatan-default.jpg'));
     }
 
-    public function scopePublished($query)
+    /**
+     * Scope for published kegiatan. Type-hinted for Laravel 13 compatibility.
+     */
+    public function scopePublished(Builder $query): Builder
     {
         return $query->where('is_published', true);
     }

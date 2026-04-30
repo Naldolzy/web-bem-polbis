@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 
 class Ormawa extends Model
@@ -13,7 +15,10 @@ class Ormawa extends Model
 
     protected $casts = ['is_active' => 'boolean'];
 
-    public function scopeActive($query)
+    /**
+     * Scope for active ormawa. Type-hinted for Laravel 13 compatibility.
+     */
+    public function scopeActive(Builder $query): Builder
     {
         return $query->where('is_active', true);
     }

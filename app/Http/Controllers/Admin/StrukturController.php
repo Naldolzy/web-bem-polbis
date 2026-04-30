@@ -4,31 +4,33 @@ namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
 use App\Models\Struktur;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use Illuminate\View\View;
 
 class StrukturController extends Controller
 {
-    public function index()
+    public function index(): View
     {
         $struktur = Struktur::orderBy('urutan')->get()->groupBy('divisi');
         return view('admin.struktur.index', compact('struktur'));
     }
 
-    public function create()
+    public function create(): View
     {
         return view('admin.struktur.create');
     }
 
-    public function store(Request $request)
+    public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'divisi' => 'required|string|max:255',
-            'nim' => 'nullable|string|max:50',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'urutan' => 'nullable|integer|min:0',
+            'nama'      => 'required|string|max:255',
+            'jabatan'   => 'required|string|max:255',
+            'divisi'    => 'required|string|max:255',
+            'nim'       => 'nullable|string|max:50',
+            'foto'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+            'urutan'    => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
 
@@ -37,7 +39,7 @@ class StrukturController extends Controller
         }
 
         $validated['is_active'] = $request->boolean('is_active');
-        $validated['urutan'] = $validated['urutan'] ?? 0;
+        $validated['urutan']    = $validated['urutan'] ?? 0;
 
         Struktur::create($validated);
 
@@ -45,20 +47,20 @@ class StrukturController extends Controller
             ->with('success', 'Anggota struktur berhasil ditambahkan!');
     }
 
-    public function edit(Struktur $struktur)
+    public function edit(Struktur $struktur): View
     {
         return view('admin.struktur.edit', compact('struktur'));
     }
 
-    public function update(Request $request, Struktur $struktur)
+    public function update(Request $request, Struktur $struktur): RedirectResponse
     {
         $validated = $request->validate([
-            'nama' => 'required|string|max:255',
-            'jabatan' => 'required|string|max:255',
-            'divisi' => 'required|string|max:255',
-            'nim' => 'nullable|string|max:50',
-            'foto' => 'nullable|image|mimes:jpg,jpeg,png,webp|max:2048',
-            'urutan' => 'nullable|integer|min:0',
+            'nama'      => 'required|string|max:255',
+            'jabatan'   => 'required|string|max:255',
+            'divisi'    => 'required|string|max:255',
+            'nim'       => 'nullable|string|max:50',
+            'foto'      => 'nullable|image|mimes:jpg,jpeg,png,webp|max:10240',
+            'urutan'    => 'nullable|integer|min:0',
             'is_active' => 'boolean',
         ]);
 
@@ -70,7 +72,7 @@ class StrukturController extends Controller
         }
 
         $validated['is_active'] = $request->boolean('is_active');
-        $validated['urutan'] = $validated['urutan'] ?? 0;
+        $validated['urutan']    = $validated['urutan'] ?? 0;
 
         $struktur->update($validated);
 
@@ -78,7 +80,7 @@ class StrukturController extends Controller
             ->with('success', 'Anggota struktur berhasil diperbarui!');
     }
 
-    public function destroy(Struktur $struktur)
+    public function destroy(Struktur $struktur): RedirectResponse
     {
         if ($struktur->foto) {
             Storage::disk('public')->delete($struktur->foto);
@@ -89,7 +91,7 @@ class StrukturController extends Controller
             ->with('success', 'Anggota struktur berhasil dihapus!');
     }
 
-    public function hapusFoto(Struktur $struktur)
+    public function hapusFoto(Struktur $struktur): RedirectResponse
     {
         if ($struktur->foto) {
             Storage::disk('public')->delete($struktur->foto);
