@@ -1,0 +1,16 @@
+User-agent: *
+Allow: /
+
+# Disallow admin panel from search engines
+Disallow: /bem-admin/
+Disallow: /bem-admin/*
+
+# Block sensitive paths
+Disallow: /.env
+Disallow: /vendor/
+
+# Crawl delay (be friendly)
+Crawl-delay: 10
+
+# Sitemap — update URL below to your actual domain after deploy
+Sitemap: https://web-bem-polbis.up.railway.app/sitemap.xml
