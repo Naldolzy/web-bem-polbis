@@ -9,8 +9,5 @@ Disallow: /bem-admin/*
 Disallow: /.env
 Disallow: /vendor/
 
-# Crawl delay (be friendly)
-Crawl-delay: 10
-
-# Sitemap — update URL below to your actual domain after deploy
-Sitemap: https://web-bem-polbis.up.railway.app/sitemap.xml
+# Sitemap
+Sitemap: https://bem-polbis.up.railway.app/sitemap.xml
