@@ -4,7 +4,7 @@
 @section('meta_description', 'Daftar Himpunan Mahasiswa (HIMA) dan Organisasi Mahasiswa di Politeknik Bisnis Digital Indonesia. Kunjungi website masing-masing HIMA.')
 @section('breadcrumb_json')
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Beranda","item":"{{ url('/') }}"},

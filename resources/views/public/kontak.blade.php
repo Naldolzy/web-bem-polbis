@@ -4,7 +4,7 @@
 @section('meta_description', 'Hubungi BEM Politeknik Bisnis Digital Indonesia. Temukan email, nomor WhatsApp, Instagram, dan lokasi kampus kami.')
 @section('breadcrumb_json')
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Beranda","item":"{{ url('/') }}"},

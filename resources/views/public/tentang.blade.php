@@ -4,7 +4,7 @@
 @section('meta_description', 'Mengenal BEM Politeknik Bisnis Digital Indonesia — visi, misi, sejarah, sambutan ketua, dan profil lengkap Badan Eksekutif Mahasiswa Polbis.')
 @section('breadcrumb_json')
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Beranda","item":"{{ url('/') }}"},

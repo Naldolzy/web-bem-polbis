@@ -4,7 +4,7 @@
 @section('meta_description', 'Kenali pengurus BEM Politeknik Bisnis Digital Indonesia. Struktur organisasi lengkap per divisi periode aktif.')
 @section('breadcrumb_json')
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "BreadcrumbList",
     "itemListElement": [
         {"@type":"ListItem","position":1,"name":"Beranda","item":"{{ url('/') }}"},

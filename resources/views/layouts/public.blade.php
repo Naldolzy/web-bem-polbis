@@ -41,8 +41,9 @@
     @if(request()->routeIs('beranda'))
     <script type="application/ld+json">
     {
-        "@context": "https://schema.org",
+        "@@context": "https://schema.org",
         "@type": "Organization",
+
         "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
         "alternateName": "BEM Polbis",
         "url": "{{ url('/') }}",
