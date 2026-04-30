@@ -14,6 +14,16 @@ use Illuminate\Support\Facades\Route;
 // ========================
 // PUBLIC ROUTES
 // ========================
+// Route darurat buat ngisi data admin di hosting (Hapus setelah berhasil)
+Route::get('/fix-admin', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        return "Success! Data admin berhasil dibuat. Silakan login.";
+    } catch (\Exception $e) {
+        return "Error: " . $e->getMessage();
+    }
+});
+
 Route::get('/', [PublicController::class, 'beranda'])->name('beranda');
 Route::get('/tentang', [PublicController::class, 'tentang'])->name('tentang');
 Route::get('/kegiatan', [PublicController::class, 'kegiatan'])->name('kegiatan');
