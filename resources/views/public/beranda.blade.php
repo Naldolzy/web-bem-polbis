@@ -192,7 +192,7 @@
                         <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3">
                             <span class="text-amber-500 font-black text-sm">{{ $i+1 }}</span>
                         </div>
-                        <p class="text-slate-300 text-sm leading-relaxed">{{ $item->misi }}</p>
+                        <p class="text-slate-300 text-sm leading-relaxed">{{ $item->isi }}</p>
                     </div>
                 @endforeach
             </div>
