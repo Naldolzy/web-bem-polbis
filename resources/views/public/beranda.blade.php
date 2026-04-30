@@ -187,15 +187,13 @@
                 </a>
             </div>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-4 reveal">
-                @foreach(['misi_1','misi_2','misi_3','misi_4'] as $i => $key)
-                    @if(!empty($profil[$key]))
-                        <div class="card-glass p-5">
-                            <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3">
-                                <span class="text-amber-500 font-black text-sm">{{ $i+1 }}</span>
-                            </div>
-                            <p class="text-slate-300 text-sm leading-relaxed">{{ $profil[$key] }}</p>
+                @foreach($misi as $i => $item)
+                    <div class="card-glass p-5">
+                        <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center mb-3">
+                            <span class="text-amber-500 font-black text-sm">{{ $i+1 }}</span>
                         </div>
-                    @endif
+                        <p class="text-slate-300 text-sm leading-relaxed">{{ $item->misi }}</p>
+                    </div>
                 @endforeach
             </div>
         </div>

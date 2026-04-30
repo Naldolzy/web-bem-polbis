@@ -14,11 +14,12 @@ class PublicController extends Controller
     public function beranda()
     {
         $profil = ProfilBem::getAllAsArray();
+        $misi = BemMisi::getAllOrdered()->take(4);
         $kegiatan_terbaru = Kegiatan::published()
             ->orderBy('tanggal_kegiatan', 'desc')
             ->limit(6)
             ->get();
-        return view('public.beranda', compact('profil', 'kegiatan_terbaru'));
+        return view('public.beranda', compact('profil', 'misi', 'kegiatan_terbaru'));
     }
 
     public function tentang()
