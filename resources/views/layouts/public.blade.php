@@ -6,8 +6,6 @@
 
     @php
         $seo_profil = \App\Models\ProfilBem::getAllAsArray();
-        $seo_title       = trim(@yield('title', 'BEM Polbis'));
-        $seo_desc        = trim(@yield('meta_description', 'Website resmi Badan Eksekutif Mahasiswa Politeknik Bisnis Digital Indonesia. Informasi kegiatan, struktur organisasi, dan berita terkini mahasiswa.'));
         $seo_url         = url()->current();
         $seo_site_name   = ($seo_profil['nama_bem'] ?? 'BEM Polbis') . ' ' . ($seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia');
         $seo_logo        = !empty($seo_profil['logo_bem']) ? asset('storage/'.$seo_profil['logo_bem']) : asset('favicon.ico');
@@ -15,8 +13,8 @@
     @endphp
 
     {{-- Primary Meta --}}
-    <title>{{ $seo_title }} | BEM Politeknik Bisnis Digital Indonesia</title>
-    <meta name="description" content="{{ $seo_desc }}">
+    <title>@yield('title', 'BEM Polbis') | BEM Politeknik Bisnis Digital Indonesia</title>
+    <meta name="description" content="@yield('meta_description', 'Website resmi Badan Eksekutif Mahasiswa Politeknik Bisnis Digital Indonesia. Informasi kegiatan, struktur organisasi, dan berita terkini mahasiswa.')">
     <meta name="keywords" content="BEM Polbis, Badan Eksekutif Mahasiswa, Politeknik Bisnis Digital Indonesia, organisasi mahasiswa, HIMA, kegiatan mahasiswa">
     <meta name="author" content="BEM Politeknik Bisnis Digital Indonesia">
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
@@ -25,8 +23,8 @@
     {{-- Open Graph / Facebook --}}
     <meta property="og:type" content="website">
     <meta property="og:url" content="{{ $seo_url }}">
-    <meta property="og:title" content="{{ $seo_title }} | BEM Polbis">
-    <meta property="og:description" content="{{ $seo_desc }}">
+    <meta property="og:title" content="@yield('title', 'BEM Polbis') | BEM Polbis">
+    <meta property="og:description" content="@yield('meta_description', 'Website resmi Badan Eksekutif Mahasiswa Politeknik Bisnis Digital Indonesia. Informasi kegiatan, struktur organisasi, dan berita terkini mahasiswa.')">
     <meta property="og:image" content="@yield('og_image', $seo_og_image)">
     <meta property="og:image:width" content="1200">
     <meta property="og:image:height" content="630">
@@ -35,8 +33,8 @@
 
     {{-- Twitter Card --}}
     <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="{{ $seo_title }} | BEM Polbis">
-    <meta name="twitter:description" content="{{ $seo_desc }}">
+    <meta name="twitter:title" content="@yield('title', 'BEM Polbis') | BEM Polbis">
+    <meta name="twitter:description" content="@yield('meta_description', 'Website resmi Badan Eksekutif Mahasiswa Politeknik Bisnis Digital Indonesia. Informasi kegiatan, struktur organisasi, dan berita terkini mahasiswa.')">
     <meta name="twitter:image" content="@yield('og_image', $seo_og_image)">
 
     {{-- Structured Data: Organization (hanya di beranda) --}}

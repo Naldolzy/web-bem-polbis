@@ -1,58 +1,127 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo"></a></p>
+# 🎓 BEM Polbis — Website Resmi Badan Eksekutif Mahasiswa
 
-<p align="center">
-<a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+Website resmi untuk Badan Eksekutif Mahasiswa (BEM) Politeknik Bisnis Digital Indonesia (Polbis). Website ini dibangun untuk menjadi pusat informasi profil organisasi, pengumuman kegiatan mahasiswa, struktur kepengurusan, informasi himpunan mahasiswa (Ormawa), dan kontak resmi. 
 
-## About Laravel
+Sistem ini dilengkapi dengan Panel Admin yang *fully-dynamic* sehingga pengurus BEM dapat mengubah konten website tanpa perlu menyentuh kode.
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+![BEM Polbis](public/favicon.ico)
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+---
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+## 🌟 Fitur Utama
 
-## Learning Laravel
+### 🖥️ Halaman Publik (Frontend)
+- **Desain Premium:** Menggunakan skema warna resmi BEM Polbis (Navy Blue & BEM Gold) dipadukan dengan desain *Glassmorphism*.
+- **Beranda:** Menampilkan ucapan selamat datang dan ringkasan singkat dari BEM.
+- **Tentang BEM:** Visi, Misi (dinamis), Sejarah lengkap, dan Sambutan Ketua.
+- **Struktur Organisasi:** Menampilkan daftar anggota BEM beserta jabatannya per divisi secara rapi.
+- **Ormawa & HIMA:** Katalog Organisasi Mahasiswa dan Himpunan Mahasiswa lengkap dengan logonya.
+- **Kegiatan & Proker:** Publikasi berita, program kerja, dan galeri kegiatan BEM.
+- **Kontak:** Alamat terintegrasi Google Maps, Email, dan link ke Sosial Media BEM.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+### ⚙️ Panel Admin (Backend)
+- **Dashboard:** Menampilkan statistik singkat kegiatan, struktur, dan ormawa.
+- **Kelola Profil BEM:** Merubah nama kampus, logo kampus, logo BEM, visi, misi, sejarah, alamat, kontak, hingga foto ketua secara instan.
+- **Kelola Struktur:** Tambah/Edit/Hapus anggota kepengurusan BEM (support upload foto).
+- **Kelola Ormawa:** Tambah/Edit/Hapus daftar Ormawa/HIMA.
+- **Kelola Kegiatan:** Publikasi artikel kegiatan dengan fitur upload *thumbnail* resolusi tinggi (maks 10MB).
+- **Security:** Login system terenkripsi, proteksi *middleware* di seluruh panel admin.
 
-In addition, [Laracasts](https://laracasts.com) contains thousands of video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
+### 🚀 Optimasi SEO & Performa
+- **Sitemap XML Otomatis:** (`/sitemap.xml`) yang selalu ter-update setiap ada artikel baru.
+- **Open Graph & Twitter Cards:** Thumbnail otomatis muncul saat link website di-share di WhatsApp, Twitter, FB, dll.
+- **JSON-LD Schema:** Bantuan tambahan untuk mempermudah Google mendeteksi BEM Polbis sebagai Organisasi Resmi.
+- **Preloader Custom & Caching:** Load halaman lebih *smooth* dengan aset CSS yang di-bundle menggunakan Vite.
 
-You can also watch bite-sized lessons with real-world projects on [Laravel Learn](https://laravel.com/learn), where you will be guided through building a Laravel application from scratch while learning PHP fundamentals.
+---
 
-## Agentic Development
+## 🛠️ Tech Stack
 
-Laravel's predictable structure and conventions make it ideal for AI coding agents like Claude Code, Cursor, and GitHub Copilot. Install [Laravel Boost](https://laravel.com/docs/ai) to supercharge your AI workflow:
+- **Framework Backend:** Laravel 11 (PHP 8.2+)
+- **Database:** MySQL
+- **Framework CSS:** Tailwind CSS v4
+- **Asset Bundler:** Vite
+- **Font:** Plus Jakarta Sans & Inter (Google Fonts)
 
-```bash
-composer require laravel/boost --dev
+---
 
-php artisan boost:install
-```
+## 💻 Tata Cara Pakai & Instalasi (Lokal)
 
-Boost provides your agent 15+ tools and skills that help agents build Laravel applications while following best practices.
+Buat lu yang pengen ngejalanin project ini di laptop sendiri, ikutin langkah ini:
 
-## Contributing
+1. **Clone Repository**
+   ```bash
+   git clone https://github.com/Naldolzy/web-bem-polbis.git
+   cd web-bem-polbis
+   ```
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+2. **Install Dependencies**
+   ```bash
+   composer install
+   npm install
+   ```
 
-## Code of Conduct
+3. **Konfigurasi Environment**
+   - Copy file `.env.example` lalu ubah namanya jadi `.env`.
+   - Buka file `.env`, lalu buat database di MySQL (misal: `bem_polbis`) dan sesuaikan config DB di dalam file `.env`:
+   ```env
+   DB_CONNECTION=mysql
+   DB_HOST=127.0.0.1
+   DB_PORT=3306
+   DB_DATABASE=bem_polbis
+   DB_USERNAME=root
+   DB_PASSWORD=
+   ```
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+4. **Generate Key & Link Storage**
+   ```bash
+   php artisan key:generate
+   php artisan storage:link
+   ```
 
-## Security Vulnerabilities
+5. **Migrasi Database & Seeding (Penting!)**
+   Jalankan command ini agar tabel database terbentuk dan otomatis terisi dengan data *default* BEM Polbis dan akun Admin:
+   ```bash
+   php artisan migrate:fresh --seed
+   ```
 
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
+6. **Build Asset CSS/JS**
+   ```bash
+   npm run build
+   ```
 
-## License
+7. **Jalankan Aplikasi**
+   ```bash
+   php artisan serve
+   ```
+   Buka browser dan akses: `http://localhost:8000`
 
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+---
+
+## 🔐 Akses Panel Admin
+
+Secara *default* (setelah menjalankan seeding), sistem sudah membuat 1 akun admin agar kamu bisa langsung mengelola website:
+
+- **URL Login:** `http://localhost:8000/bem-admin/login`
+- **Email:** `admin@bem-polbis.ac.id`
+- **Password:** `bempolbis2025`
+
+*(Sangat disarankan untuk segera mengubah password jika sudah naik ke production!)*
+
+---
+
+## 📝 Catatan Tambahan Project
+
+1. **Upload Maksimal 10MB**
+   Jika nanti di hosting ternyata gagal upload gambar berukuran besar, pastikan konfigurasi `upload_max_filesize` dan `post_max_size` pada PHP server (atau `php.ini`) minimal **10MB**. Pada project ini, limit sudah diatur di file `.htaccess` dan `ProfilController`.
+
+2. **Hosting Recommendations**
+   - **TIDAK DISARANKAN** menggunakan **Vercel**. Vercel didesain untuk Next.js/React, sehingga memaksa Laravel jalan di Vercel butuh workaround *serverless* yang rumit dan tidak support MySQL bawaan.
+   - **SANGAT DISARANKAN** deploy ke **Railway.app**, **Hostinger**, atau **VPS** biasa. Project ini sudah dilengkapi dengan file `nixpacks.toml` khusus agar *seamless deployment* ke Railway!
+
+3. **Symlink Storage pada Hosting/Cpanel**
+   Kalau deploy di shared hosting (seperti cPanel), jangan lupa jalankan `php artisan storage:link` atau buat symlink manual agar foto-foto yang diupload di admin bisa muncul di halaman publik.
+
+---
+
+> Dibuat dengan 💻 dan ☕ untuk **Politeknik Bisnis Digital Indonesia**.
