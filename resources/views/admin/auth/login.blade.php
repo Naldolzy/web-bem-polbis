@@ -34,13 +34,13 @@
                 <div>
                     <label for="email" class="form-label">Email Admin</label>
                     <div class="relative">
-                        <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+                        <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"/>
                             </svg>
                         </div>
                         <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                               class="form-input pl-10 @error('email') border-red-500 @enderror"
+                               class="form-input pl-11 @error('email') border-red-500 @enderror"
                                placeholder="admin@bem-polbis.ac.id">
                     </div>
                     @error('email')
@@ -52,13 +52,13 @@
                 <div>
                     <label for="password" class="form-label">Password</label>
                     <div class="relative">
-                        <div class="absolute left-3 top-1/2 -translate-y-1/2 text-slate-500">
+                        <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
                             <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
                             </svg>
                         </div>
                         <input id="password" type="password" name="password" required
-                               class="form-input pl-10"
+                               class="form-input pl-11"
                                placeholder="••••••••">
                         <button type="button" onclick="togglePassword()"
                                 class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-500 transition-colors">
