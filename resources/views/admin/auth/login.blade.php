@@ -40,7 +40,8 @@
                             </svg>
                         </div>
                         <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
-                               class="form-input pl-11 @error('email') border-red-500 @enderror"
+                               class="form-input @error('email') border-red-500 @enderror"
+                               style="padding-left: 2.75rem;"
                                placeholder="admin@bem-polbis.ac.id">
                     </div>
                     @error('email')
@@ -58,7 +59,8 @@
                             </svg>
                         </div>
                         <input id="password" type="password" name="password" required
-                               class="form-input pl-11"
+                               class="form-input"
+                               style="padding-left: 2.75rem;"
                                placeholder="••••••••">
                         <button type="button" onclick="togglePassword()"
                                 class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-500 transition-colors">
