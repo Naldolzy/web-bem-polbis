@@ -86,8 +86,44 @@
                         Ormawa
                     </a>
 
+                    {{-- Super Admin Only Menu --}}
+                    @if(auth()->user()->isSuperAdmin())
+                    <div class="my-4 border-t border-white/06"></div>
+                    <p class="text-xs font-semibold text-amber-600/80 uppercase tracking-widest px-3 mb-2">⚡ Super Admin</p>
+
+                    <a href="{{ route('admin.users.index') }}"
+                        class="sidebar-link {{ request()->routeIs('admin.users*') ? 'active' : '' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 4.354a4 4 0 110 5.292M15 21H3v-1a6 6 0 0112 0v1zm0 0h6v-1a6 6 0 00-9-5.197M13 7a4 4 0 11-8 0 4 4 0 018 0z" />
+                        </svg>
+                        Kelola Akun Admin
+                    </a>
+
+                    <a href="{{ route('admin.site-settings.index') }}"
+                        class="sidebar-link {{ request()->routeIs('admin.site-settings*') ? 'active' : '' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
+                        </svg>
+                        Pengaturan Website
+                        @if(\App\Models\SiteSetting::isLocked())
+                            <span class="ml-auto w-2 h-2 rounded-full bg-red-400 animate-pulse"></span>
+                        @endif
+                    </a>
+                    @endif
+
                     <div class="my-4 border-t border-white/06"></div>
                     <p class="text-xs font-semibold text-slate-600 uppercase tracking-widest px-3 mb-2">Aksi</p>
+
+                    <a href="{{ route('admin.account.change-password') }}"
+                        class="sidebar-link {{ request()->routeIs('admin.account*') ? 'active' : '' }}">
+                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
+                        </svg>
+                        Ganti Password
+                    </a>
 
                     <a href="{{ route('beranda') }}" target="_blank" class="sidebar-link">
                         <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -124,14 +160,25 @@
                     </button>
                     <h1 class="text-white font-semibold text-lg">@yield('page_title', 'Dashboard')</h1>
                 </div>
-                <!-- <div class="flex items-center gap-3">
+                {{-- User info + role badge di topbar --}}
+                <div class="flex items-center gap-3">
+                    @if(auth()->user()->isSuperAdmin())
+                        <span class="hidden sm:inline-flex items-center gap-1 bg-amber-500/15 text-amber-400 border border-amber-500/30 text-xs font-bold px-2.5 py-1 rounded-full">
+                            <svg class="w-3 h-3" fill="currentColor" viewBox="0 0 20 20"><path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"/></svg>
+                            Super Admin
+                        </span>
+                    @else
+                        <span class="hidden sm:inline-flex items-center gap-1 bg-blue-500/15 text-blue-400 border border-blue-500/30 text-xs font-bold px-2.5 py-1 rounded-full">
+                            Admin
+                        </span>
+                    @endif
                     <div class="flex items-center gap-2">
                         <div class="w-8 h-8 rounded-full bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center">
                             <span class="text-gray-900 font-bold text-xs">{{ strtoupper(substr(auth()->user()->name, 0, 2)) }}</span>
                         </div>
                         <span class="text-slate-300 text-sm hidden sm:inline">{{ auth()->user()->name }}</span>
                     </div>
-                </div> -->
+                </div>
             </div>
 
             <!-- Page Content -->

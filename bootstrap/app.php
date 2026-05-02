@@ -13,6 +13,10 @@ return Application::configure(basePath: dirname(__DIR__))
     )
     ->withMiddleware(function (Middleware $middleware): void {
         $middleware->redirectGuestsTo(fn () => route('admin.login'));
+        $middleware->alias([
+            'superadmin' => \App\Http\Middleware\IsSuperAdmin::class,
+            'site.locked' => \App\Http\Middleware\CheckSiteLocked::class,
+        ]);
     })
     ->withExceptions(function (Exceptions $exceptions): void {
         //

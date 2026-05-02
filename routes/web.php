@@ -1,36 +1,33 @@
 <?php
 
+use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
 use App\Http\Controllers\Admin\MisiController;
 use App\Http\Controllers\Admin\OrmawaController;
 use App\Http\Controllers\Admin\ProfilController;
+use App\Http\Controllers\Admin\SiteSettingController;
 use App\Http\Controllers\Admin\StrukturController as AdminStrukturController;
+use App\Http\Controllers\Admin\UserController;
 use App\Http\Controllers\PublicController;
 use App\Http\Controllers\SitemapController;
 use Illuminate\Support\Facades\Route;
 
 // ========================
-// PUBLIC ROUTES
+// PUBLIC ROUTES (dilindungi site.locked middleware)
 // ========================
-// Route darurat buat ngisi data admin di hosting (Hapus setelah berhasil)
-Route::get('/fix-admin', function () {
-    try {
-        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
-        return "Success! Data admin berhasil dibuat. Silakan login.";
-    } catch (\Exception $e) {
-        return "Error: " . $e->getMessage();
-    }
+Route::middleware('site.locked')->group(function () {
+    Route::get('/', [PublicController::class, 'beranda'])->name('beranda');
+    Route::get('/tentang', [PublicController::class, 'tentang'])->name('tentang');
+    Route::get('/kegiatan', [PublicController::class, 'kegiatan'])->name('kegiatan');
+    Route::get('/kegiatan/{slug}', [PublicController::class, 'kegiatanDetail'])->name('kegiatan.show');
+    Route::get('/struktur', [PublicController::class, 'struktur'])->name('struktur');
+    Route::get('/ormawa', [PublicController::class, 'ormawa'])->name('ormawa');
+    Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
 });
 
-Route::get('/', [PublicController::class, 'beranda'])->name('beranda');
-Route::get('/tentang', [PublicController::class, 'tentang'])->name('tentang');
-Route::get('/kegiatan', [PublicController::class, 'kegiatan'])->name('kegiatan');
-Route::get('/kegiatan/{slug}', [PublicController::class, 'kegiatanDetail'])->name('kegiatan.show');
-Route::get('/struktur', [PublicController::class, 'struktur'])->name('struktur');
-Route::get('/ormawa', [PublicController::class, 'ormawa'])->name('ormawa');
-Route::get('/kontak', [PublicController::class, 'kontak'])->name('kontak');
+// Sitemap & robots selalu bisa diakses (tidak terkena lock)
 Route::get('/sitemap.xml', [SitemapController::class, 'index'])->name('sitemap');
 
 // ========================
@@ -43,7 +40,7 @@ Route::prefix('bem-admin')->name('admin.')->group(function () {
     Route::post('/login', [AuthController::class, 'login'])->name('login.post');
     Route::post('/logout', [AuthController::class, 'logout'])->name('logout');
 
-    // Protected routes (perlu login)
+    // Protected routes (perlu login - semua role)
     Route::middleware('auth')->group(function () {
         Route::get('/dashboard', [DashboardController::class, 'index'])->name('dashboard');
 
@@ -70,5 +67,21 @@ Route::prefix('bem-admin')->name('admin.')->group(function () {
         Route::get('/ormawa/create', [OrmawaController::class, 'create'])->name('ormawa.create');
         Route::post('/ormawa', [OrmawaController::class, 'store'])->name('ormawa.store');
         Route::delete('/ormawa/{ormawa}', [OrmawaController::class, 'destroy'])->name('ormawa.destroy');
+
+        // Ganti Password (semua role)
+        Route::get('/account/password', [AccountController::class, 'changePassword'])->name('account.change-password');
+        Route::put('/account/password', [AccountController::class, 'updatePassword'])->name('account.update-password');
+
+        // Super Admin only routes
+        Route::middleware('superadmin')->group(function () {
+            // Kelola akun admin
+            Route::get('/users/{user}/password', [UserController::class, 'showPassword'])->name('users.password');
+            Route::resource('/users', UserController::class)->except(['show']);
+
+            // Pengaturan website (lock/unlock)
+            Route::get('/site-settings', [SiteSettingController::class, 'index'])->name('site-settings.index');
+            Route::post('/site-settings/lock', [SiteSettingController::class, 'lock'])->name('site-settings.lock');
+            Route::post('/site-settings/unlock', [SiteSettingController::class, 'unlock'])->name('site-settings.unlock');
+        });
     });
 });

@@ -566,3 +566,61 @@ body {
     .admin-sidebar.open { transform: translateX(0); }
     .admin-content { margin-left: 0; }
 }
+
+/* === Super Admin New Component Styles === */
+
+/* Admin Card */
+.admin-card {
+    background: rgba(26, 45, 90, 0.35);
+    border: 1px solid rgba(255, 255, 255, 0.07);
+    border-radius: 1rem;
+}
+
+/* Admin Input (alias for form-input, for new views) */
+.admin-input {
+    background: rgba(26, 45, 90, 0.5);
+    border: 1.5px solid rgba(255, 255, 255, 0.1);
+    border-radius: 0.75rem;
+    padding: 0.75rem 1rem;
+    color: #e2e8f0;
+    font-size: 0.9rem;
+    transition: all 0.2s ease;
+    outline: none;
+}
+.admin-input:focus {
+    border-color: #C9A227;
+    box-shadow: 0 0 0 3px rgba(201, 162, 39, 0.12);
+    background: rgba(26, 45, 90, 0.8);
+}
+.admin-input::placeholder { color: #64748b; }
+.admin-input option { background: #0f1c3f; color: #e2e8f0; }
+
+/* Admin Primary Button */
+.btn-admin-primary {
+    background: linear-gradient(135deg, #C9A227, #A88A1A);
+    color: #0f1c3f;
+    font-weight: 700;
+    padding: 0.65rem 1.25rem;
+    border-radius: 0.75rem;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    text-decoration: none;
+    font-size: 0.875rem;
+}
+.btn-admin-primary:hover {
+    transform: translateY(-1px);
+    box-shadow: 0 6px 20px rgba(201, 162, 39, 0.4);
+    background: linear-gradient(135deg, #E8C84F, #C9A227);
+}
+
+/* Hover bg utility for very subtle hover */
+.hover\:bg-white\/03:hover { background-color: rgba(255,255,255,0.03); }
+.bg-white\/03 { background-color: rgba(255,255,255,0.03); }
+.bg-white\/05 { background-color: rgba(255,255,255,0.05); }
+.bg-white\/06 { background-color: rgba(255,255,255,0.06); }
+.bg-white\/08 { background-color: rgba(255,255,255,0.08); }
+.hover\:bg-white\/15:hover { background-color: rgba(255,255,255,0.15); }
