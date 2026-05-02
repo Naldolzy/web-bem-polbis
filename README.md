@@ -144,7 +144,6 @@ Terdapat dua tingkat hak akses yang tersedia secara default:
 
 | Role | Email Login | Password | Hak Akses |
 |------|-------------|----------|-----------|
-| **⭐ Super Admin** | `superadmin@bem-polbis.ac.id` | `superadmin2025` | Akses Penuh (Bisa kunci web & kelola admin lain) |
 | **👤 Admin Biasa** | `admin@bem-polbis.ac.id` | `bempolbis2025` | Terbatas (Hanya kelola konten website: artikel, kegiatan, ormawa, dll) |
 
 > ⚠️ **PENTING:** Segera ganti password dari akun default ini setelah website Anda berhasil online (deploy) demi keamanan!
