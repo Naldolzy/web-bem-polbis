@@ -134,17 +134,26 @@ Akses di: `http://localhost:8000`
 
 ---
 
-## 🔐 Akses Panel Admin
+## 🔐 Akses Panel Admin & Panduan Pemula
 
-Setelah seeding, akun admin default sudah tersedia:
+Setelah aplikasi berhasil berjalan, Anda bisa login ke Panel Admin melalui URL: `http://localhost:8000/bem-admin/login` (Ganti localhost dengan domain Anda jika sudah online). 
 
-| Field | Value |
-|-------|-------|
-| URL Login | `http://localhost:8000/bem-admin/login` |
-| Email | `admin@bem-polbis.ac.id` |
-| Password | `bempolbis2025` |
+Terdapat dua tingkat hak akses yang tersedia secara default:
 
-> ⚠️ **Wajib ganti password** setelah deploy ke production!
+### 1. Akun Default
+
+| Role | Email Login | Password | Hak Akses |
+|------|-------------|----------|-----------|
+| **⭐ Super Admin** | `superadmin@bem-polbis.ac.id` | `superadmin2025` | Akses Penuh (Bisa kunci web & kelola admin lain) |
+| **👤 Admin Biasa** | `admin@bem-polbis.ac.id` | `bempolbis2025` | Terbatas (Hanya kelola konten website: artikel, kegiatan, ormawa, dll) |
+
+> ⚠️ **PENTING:** Segera ganti password dari akun default ini setelah website Anda berhasil online (deploy) demi keamanan!
+
+### 2. Cara Menggunakan Fitur-fitur Admin
+- **Cara Ganti Password:** Login ke panel admin, klik nama/profil Anda di pojok kanan atas layar, lalu pilih menu **"Ganti Password"**. Masukkan password baru dan simpan.
+- **Menambahkan Admin Baru:** Fitur ini **hanya bisa diakses oleh Super Admin**. Di menu sebelah kiri, klik **"Kelola Admin"**. Klik tombol "+ Tambah Admin", isi nama, email, role, dan password sementara untuk admin baru tersebut.
+- **Melihat Password Admin Lain:** Jika ada admin yang lupa password, **Super Admin** bisa masuk ke menu "Kelola Admin", lalu klik tombol ikon **Mata (👁️)** di baris nama admin tersebut untuk mengintip password aslinya.
+- **Mengunci Website (Mode Perbaikan/Maintenance):** Fitur khusus Super Admin. Jika website sedang diperbaiki, masuk ke menu **"Pengaturan Website"**. Ketik alasan perbaikannya, lalu klik "Kunci Website". Pengunjung umum hanya akan melihat layar perbaikan, tetapi semua admin tetap bisa login dan mengedit website seperti biasa!
 
 ---
 
