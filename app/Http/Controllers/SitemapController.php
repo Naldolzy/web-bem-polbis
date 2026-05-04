@@ -9,7 +9,7 @@ class SitemapController extends Controller
 {
     public function index()
     {
-        $kegiatan = Cache::remember('sitemap_kegiatan', 3600, function () {
+        $kegiatan = Cache::remember('sitemap_kegiatan_v2', 3600, function () {
             return Kegiatan::published()
                 ->orderBy('updated_at', 'desc')
                 ->select('slug', 'updated_at')
