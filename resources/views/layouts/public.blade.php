@@ -51,33 +51,33 @@
     {{-- Structured Data: Organization (hanya di beranda) --}}
     @if(request()->routeIs('beranda'))
         <script type="application/ld+json">
-                                                                            {
-                                                                                "@@context": "https://schema.org",
-                                                                                "@type": "Organization",
+                                                                                {
+                                                                                    "@@context": "https://schema.org",
+                                                                                    "@type": "Organization",
 
-                                                                                "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
-                                                                                "alternateName": "BEM Polbis",
-                                                                                "url": "{{ url('/') }}",
-                                                                                "logo": "{{ $seo_logo }}",
-                                                                                "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
-                                                                                "parentOrganization": {
-                                                                                    "@type": "CollegeOrUniversity",
-                                                                                    "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
-                                                                                },
-                                                                                "address": {
-                                                                                    "@type": "PostalAddress",
-                                                                                    "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
-                                                                                    "addressCountry": "ID"
-                                                                                },
-                                                                                "email": "{{ $seo_profil['email'] ?? '' }}",
-                                                                                "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
-                                                                                "sameAs": [
-                                                                                    "{{ $seo_profil['instagram'] ?? '' }}",
-                                                                                    "{{ $seo_profil['youtube'] ?? '' }}",
-                                                                                    "{{ $seo_profil['tiktok'] ?? '' }}"
-                                                                                ]
-                                                                            }
-                                                                            </script>
+                                                                                    "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
+                                                                                    "alternateName": "BEM Polbis",
+                                                                                    "url": "{{ url('/') }}",
+                                                                                    "logo": "{{ $seo_logo }}",
+                                                                                    "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
+                                                                                    "parentOrganization": {
+                                                                                        "@type": "CollegeOrUniversity",
+                                                                                        "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
+                                                                                    },
+                                                                                    "address": {
+                                                                                        "@type": "PostalAddress",
+                                                                                        "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
+                                                                                        "addressCountry": "ID"
+                                                                                    },
+                                                                                    "email": "{{ $seo_profil['email'] ?? '' }}",
+                                                                                    "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
+                                                                                    "sameAs": [
+                                                                                        "{{ $seo_profil['instagram'] ?? '' }}",
+                                                                                        "{{ $seo_profil['youtube'] ?? '' }}",
+                                                                                        "{{ $seo_profil['tiktok'] ?? '' }}"
+                                                                                    ]
+                                                                                }
+                                                                                </script>
     @endif
 
     {{-- Structured Data: Breadcrumb --}}
