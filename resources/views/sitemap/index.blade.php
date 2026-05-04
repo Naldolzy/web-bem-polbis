@@ -40,7 +40,7 @@
     @foreach($kegiatan as $item)
     <url>
         <loc>{{ url('/kegiatan/' . $item->slug) }}</loc>
-        <lastmod>{{ $item->updated_at->toAtomString() }}</lastmod>
+        <lastmod>{{ $item->updated_at ? $item->updated_at->toAtomString() : now()->toAtomString() }}</lastmod>
         <changefreq>monthly</changefreq>
         <priority>0.7</priority>
     </url>
