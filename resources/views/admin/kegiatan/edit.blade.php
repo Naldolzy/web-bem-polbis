@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="max-w-3xl">
-    <a href="{{ route('admin.kegiatan.index') }}" class="inline-flex items-center gap-2 text-slate-400 hover:text-amber-500 text-sm mb-6 transition-colors">
+    <a href="{{ route('admin.kegiatan.index') }}" class="inline-flex items-center gap-2 text-blue-400 hover:text-lime-500 text-sm mb-6 transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -59,7 +59,7 @@
                             <img src="{{ asset('storage/'.$kegiatan->foto) }}" class="w-16 h-16 rounded-lg object-cover" alt="">
                             <div>
                                 <p class="text-white text-sm font-medium">Foto saat ini</p>
-                                <p class="text-slate-500 text-xs">Drop atau klik di bawah untuk mengganti</p>
+                                <p class="text-blue-500 text-xs">Drop atau klik di bawah untuk mengganti</p>
                             </div>
                         </div>
                         <button type="submit" form="form-delete-foto" onclick="return confirm('Hapus foto kegiatan?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
@@ -70,11 +70,11 @@
                 @endif
                 <div class="dropzone" id="dropzone-foto" onclick="document.getElementById('foto').click()">
                     <div id="dz-content">
-                        <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                         </svg>
-                        <p class="text-slate-400 text-sm">Drag & drop foto baru atau <span class="text-amber-500">klik untuk pilih</span></p>
-                        <p class="text-slate-600 text-xs mt-1">JPG, PNG, WebP — max 2MB</p>
+                        <p class="text-blue-400 text-sm">Drag & drop foto baru atau <span class="text-lime-500">klik untuk pilih</span></p>
+                        <p class="text-blue-600 text-xs mt-1">JPG, PNG, WebP — max 2MB</p>
                     </div>
                     <img id="foto-preview" class="hidden max-h-40 rounded-lg mx-auto">
                 </div>
@@ -85,10 +85,10 @@
             <div class="flex items-center gap-3 p-4 rounded-xl bg-white/03 border border-white/08">
                 <input type="checkbox" id="is_published" name="is_published" value="1"
                        {{ old('is_published', $kegiatan->is_published) ? 'checked' : '' }}
-                       class="w-5 h-5 rounded border-white/20 text-amber-500">
+                       class="w-5 h-5 rounded border-white/20 text-lime-500">
                 <label for="is_published" class="cursor-pointer">
                     <div class="text-white font-medium text-sm">Publish</div>
-                    <div class="text-slate-500 text-xs">Tampilkan di website publik</div>
+                    <div class="text-blue-500 text-xs">Tampilkan di website publik</div>
                 </label>
             </div>
 

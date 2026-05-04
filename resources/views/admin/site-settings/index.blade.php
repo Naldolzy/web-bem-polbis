@@ -7,11 +7,11 @@
 <div class="max-w-2xl space-y-6">
 
     {{-- Status Card --}}
-    <div style="background: rgba(26, 45, 90, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
+    <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
         <div class="flex items-start justify-between gap-4">
             <div class="flex-1">
                 <h2 class="text-white font-bold text-lg mb-1">Status Website</h2>
-                <p class="text-slate-400 text-sm">Kunci website untuk menampilkan halaman maintenance kepada pengunjung.</p>
+                <p class="text-blue-400 text-sm">Kunci website untuk menampilkan halaman maintenance kepada pengunjung.</p>
             </div>
             <div class="flex-shrink-0">
                 @if($isLocked)
@@ -31,16 +31,16 @@
         @if($isLocked && $lockReason)
         <div style="margin-top:1.5rem; background:rgba(239,68,68,0.08); border:1px solid rgba(239,68,68,0.2); border-radius:0.75rem; padding:1rem;">
             <p style="font-size:0.75rem; font-weight:600; color:#f87171; text-transform:uppercase; letter-spacing:0.05em; margin-bottom:0.25rem;">Alasan Penguncian:</p>
-            <p class="text-slate-300 text-sm">{{ $lockReason }}</p>
+            <p class="text-blue-300 text-sm">{{ $lockReason }}</p>
         </div>
         @endif
     </div>
 
     @if(!$isLocked)
     {{-- Lock Form --}}
-    <div style="background: rgba(26, 45, 90, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
+    <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
         <h3 class="text-white font-bold mb-1">🔒 Kunci Website</h3>
-        <p class="text-slate-400 text-sm mb-5">Pengunjung umum akan diarahkan ke halaman maintenance. Admin tetap bisa akses panel.</p>
+        <p class="text-blue-400 text-sm mb-5">Pengunjung umum akan diarahkan ke halaman maintenance. Admin tetap bisa akses panel.</p>
 
         <form method="POST" action="{{ route('admin.site-settings.lock') }}">
             @csrf
@@ -65,9 +65,9 @@
 
     @else
     {{-- Unlock Form --}}
-    <div style="background: rgba(26, 45, 90, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
+    <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
         <h3 class="text-white font-bold mb-1">🔓 Buka Kunci Website</h3>
-        <p class="text-slate-400 text-sm mb-5">Pengunjung kembali bisa mengakses semua halaman publik secara normal.</p>
+        <p class="text-blue-400 text-sm mb-5">Pengunjung kembali bisa mengakses semua halaman publik secara normal.</p>
 
         <form method="POST" action="{{ route('admin.site-settings.unlock') }}">
             @csrf
@@ -84,16 +84,16 @@
     @endif
 
     {{-- Info Box --}}
-    <div style="background:rgba(201,162,39,0.08); border:1px solid rgba(201,162,39,0.2); border-radius:0.75rem; padding:1rem;">
+    <div style="background:rgba(107,175,42,0.08); border:1px solid rgba(107,175,42,0.2); border-radius:0.75rem; padding:1rem;">
         <div class="flex gap-3">
-            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#C9A227;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#6BAF2A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
             </svg>
             <div>
-                <p style="color:#C9A227; font-weight:600; font-size:0.875rem; margin-bottom:0.25rem;">Catatan Penting</p>
-                <ul class="text-slate-400 text-sm space-y-1">
-                    <li>• Saat website dikunci, <strong class="text-slate-300">admin tetap bisa login</strong> dan mengakses panel.</li>
-                    <li>• Hanya <strong class="text-slate-300">Super Admin</strong> yang bisa membuka/mengunci website.</li>
+                <p style="color:#6BAF2A; font-weight:600; font-size:0.875rem; margin-bottom:0.25rem;">Catatan Penting</p>
+                <ul class="text-blue-400 text-sm space-y-1">
+                    <li>• Saat website dikunci, <strong class="text-blue-300">admin tetap bisa login</strong> dan mengakses panel.</li>
+                    <li>• Hanya <strong class="text-blue-300">Super Admin</strong> yang bisa membuka/mengunci website.</li>
                     <li>• Sitemap & robots.txt tetap dapat diakses meski website dikunci.</li>
                 </ul>
             </div>

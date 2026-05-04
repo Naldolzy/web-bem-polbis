@@ -9,15 +9,15 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
     <div class="card-glass p-5 rounded-xl">
         <div class="flex items-center justify-between mb-3">
-            <div class="w-10 h-10 rounded-lg bg-amber-500/20 flex items-center justify-center">
-                <svg class="w-5 h-5 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div class="w-10 h-10 rounded-lg bg-lime-500/20 flex items-center justify-center">
+                <svg class="w-5 h-5 text-lime-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
                 </svg>
             </div>
             <span class="text-green-400 text-xs font-semibold">Total</span>
         </div>
         <div class="text-3xl font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{ $total_kegiatan }}</div>
-        <div class="text-slate-400 text-sm mt-1">Total Kegiatan</div>
+        <div class="text-blue-400 text-sm mt-1">Total Kegiatan</div>
     </div>
 
     <div class="card-glass p-5 rounded-xl">
@@ -30,7 +30,7 @@
             <span class="text-green-400 text-xs font-semibold">Published</span>
         </div>
         <div class="text-3xl font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{ $kegiatan_published }}</div>
-        <div class="text-slate-400 text-sm mt-1">Kegiatan Dipublish</div>
+        <div class="text-blue-400 text-sm mt-1">Kegiatan Dipublish</div>
     </div>
 
     <div class="card-glass p-5 rounded-xl">
@@ -43,7 +43,7 @@
             <span class="text-indigo-400 text-xs font-semibold">Total</span>
         </div>
         <div class="text-3xl font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{ $total_anggota }}</div>
-        <div class="text-slate-400 text-sm mt-1">Total Anggota</div>
+        <div class="text-blue-400 text-sm mt-1">Total Anggota</div>
     </div>
 
     <div class="card-glass p-5 rounded-xl">
@@ -56,7 +56,7 @@
             <span class="text-blue-400 text-xs font-semibold">Aktif</span>
         </div>
         <div class="text-3xl font-black text-white" style="font-family: 'Plus Jakarta Sans', sans-serif;">{{ $anggota_aktif }}</div>
-        <div class="text-slate-400 text-sm mt-1">Anggota Aktif</div>
+        <div class="text-blue-400 text-sm mt-1">Anggota Aktif</div>
     </div>
 </div>
 
@@ -66,7 +66,7 @@
     <div class="card-glass rounded-xl overflow-hidden">
         <div class="p-5 border-b border-white/06 flex items-center justify-between">
             <h3 class="text-white font-semibold">Kegiatan Terbaru</h3>
-            <a href="{{ route('admin.kegiatan.index') }}" class="text-amber-500 text-sm hover:text-amber-400 transition-colors">Lihat Semua →</a>
+            <a href="{{ route('admin.kegiatan.index') }}" class="text-lime-500 text-sm hover:text-lime-400 transition-colors">Lihat Semua →</a>
         </div>
         <div class="divide-y divide-white/05">
             @forelse($kegiatan_terbaru as $item)
@@ -75,8 +75,8 @@
                         @if($item->foto)
                             <img src="{{ asset('storage/'.$item->foto) }}" class="w-full h-full object-cover" alt="">
                         @else
-                            <div class="w-full h-full bg-slate-700 flex items-center justify-center">
-                                <svg class="w-4 h-4 text-slate-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <div class="w-full h-full bg-blue-700 flex items-center justify-center">
+                                <svg class="w-4 h-4 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16"/>
                                 </svg>
                             </div>
@@ -84,14 +84,14 @@
                     </div>
                     <div class="flex-1 min-w-0">
                         <div class="text-white text-sm font-medium truncate">{{ $item->judul }}</div>
-                        <div class="text-slate-500 text-xs">{{ $item->tanggal_kegiatan->format('d M Y') }}</div>
+                        <div class="text-blue-500 text-xs">{{ $item->tanggal_kegiatan->format('d M Y') }}</div>
                     </div>
-                    <span class="px-2 py-0.5 rounded-full text-xs font-semibold {{ $item->is_published ? 'bg-green-500/20 text-green-400' : 'bg-slate-500/20 text-slate-400' }}">
+                    <span class="px-2 py-0.5 rounded-full text-xs font-semibold {{ $item->is_published ? 'bg-green-500/20 text-green-400' : 'bg-blue-500/20 text-blue-400' }}">
                         {{ $item->is_published ? 'Published' : 'Draft' }}
                     </span>
                 </div>
             @empty
-                <div class="p-8 text-center text-slate-500 text-sm">Belum ada kegiatan.</div>
+                <div class="p-8 text-center text-blue-500 text-sm">Belum ada kegiatan.</div>
             @endforelse
         </div>
     </div>
@@ -101,11 +101,11 @@
         <h3 class="text-white font-semibold mb-5">Aksi Cepat</h3>
         <div class="grid grid-cols-2 gap-3">
             <a href="{{ route('admin.kegiatan.create') }}"
-               class="flex flex-col items-center gap-2 p-5 rounded-xl bg-amber-500/10 border border-amber-500/20 hover:bg-amber-500/20 transition-all hover:scale-105 text-center">
-                <svg class="w-6 h-6 text-amber-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+               class="flex flex-col items-center gap-2 p-5 rounded-xl bg-lime-500/10 border border-lime-500/20 hover:bg-lime-500/20 transition-all hover:scale-105 text-center">
+                <svg class="w-6 h-6 text-lime-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
                 </svg>
-                <span class="text-amber-400 text-sm font-semibold">Tambah Kegiatan</span>
+                <span class="text-lime-400 text-sm font-semibold">Tambah Kegiatan</span>
             </a>
 
             <a href="{{ route('admin.struktur.create') }}"

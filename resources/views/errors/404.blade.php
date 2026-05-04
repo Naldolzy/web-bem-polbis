@@ -3,7 +3,7 @@
 @section('title', '404 - Halaman Tidak Ditemukan')
 
 @section('content')
-<div class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden" style="background: linear-gradient(135deg, #0a1228 0%, #1a2d5a 50%, #0f1c3f 100%);">
+<div class="min-h-screen flex items-center justify-center pt-20 relative overflow-hidden" style="background: linear-gradient(135deg, #083272 0%, #1565C0 50%, #0F4AA8 100%);">
     <!-- Dekorasi background -->
     <div class="absolute top-1/4 left-1/4 w-96 h-96 bg-gold-500/10 rounded-full blur-3xl pointer-events-none"></div>
     <div class="absolute bottom-1/4 right-1/4 w-96 h-96 bg-navy-600/30 rounded-full blur-3xl pointer-events-none"></div>
@@ -13,7 +13,7 @@
             404
         </div>
         <h1 class="text-3xl md:text-4xl font-bold text-white mb-4">Halaman Tidak Ditemukan</h1>
-        <p class="text-slate-400 mb-8 max-w-md mx-auto text-lg leading-relaxed">Maaf, halaman yang Anda cari mungkin telah dihapus, diubah namanya, atau tidak tersedia untuk sementara waktu.</p>
+        <p class="text-blue-400 mb-8 max-w-md mx-auto text-lg leading-relaxed">Maaf, halaman yang Anda cari mungkin telah dihapus, diubah namanya, atau tidak tersedia untuk sementara waktu.</p>
         <a href="{{ route('beranda') }}" class="btn-primary inline-flex shadow-lg shadow-gold-500/20">
             <svg class="w-5 h-5 mr-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"/>

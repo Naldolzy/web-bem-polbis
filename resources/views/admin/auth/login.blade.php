@@ -8,12 +8,12 @@
     @vite(['resources/css/app.css', 'resources/js/app.js'])
 </head>
 
-<body class="antialiased" style="background: #0f172a;">
+<body class="antialiased" style="background: #0a192f;">
 
     <div class="min-h-screen flex items-center justify-center px-4 relative overflow-hidden">
         <!-- Background particles -->
         <div class="absolute inset-0">
-            <div class="absolute top-20 left-20 w-72 h-72 bg-amber-500/5 rounded-full blur-3xl"></div>
+            <div class="absolute top-20 left-20 w-72 h-72 bg-lime-500/5 rounded-full blur-3xl"></div>
             <div class="absolute bottom-20 right-20 w-96 h-96 bg-indigo-500/5 rounded-full blur-3xl"></div>
         </div>
 
@@ -27,14 +27,14 @@
                             class="w-20 h-20 object-contain drop-shadow-xl">
                     @else
                         <div
-                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-xl">
+                            class="w-16 h-16 rounded-2xl bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center shadow-xl">
                             <span class="text-gray-900 font-black text-xl">BEM</span>
                         </div>
                     @endif
                 </div>
                 <h1 class="text-white font-bold text-2xl" style="font-family: 'Plus Jakarta Sans', sans-serif;">Admin
                     BEM Polbis</h1>
-                <p class="text-slate-400 text-sm mt-1">Masuk untuk mengelola website</p>
+                <p class="text-blue-400 text-sm mt-1">Masuk untuk mengelola website</p>
             </div>
 
             <!-- Login Card -->
@@ -46,7 +46,7 @@
                     <div>
                         <label for="email" class="form-label">Email Admin</label>
                         <div class="relative">
-                            <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
+                            <div class="absolute left-3.5 top-1/2 -tranblue-y-1/2 text-blue-500 pointer-events-none">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
@@ -65,7 +65,7 @@
                     <div>
                         <label for="password" class="form-label">Password</label>
                         <div class="relative">
-                            <div class="absolute left-3.5 top-1/2 -translate-y-1/2 text-slate-500 pointer-events-none">
+                            <div class="absolute left-3.5 top-1/2 -tranblue-y-1/2 text-blue-500 pointer-events-none">
                                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                         d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
@@ -74,7 +74,7 @@
                             <input id="password" type="password" name="password" required class="form-input"
                                 style="padding-left: 2.75rem;" placeholder="••••••••">
                             <button type="button" onclick="togglePassword()"
-                                class="absolute right-3 top-1/2 -translate-y-1/2 text-slate-500 hover:text-amber-500 transition-colors">
+                                class="absolute right-3 top-1/2 -tranblue-y-1/2 text-blue-500 hover:text-lime-500 transition-colors">
                                 <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor"
                                     viewBox="0 0 24 24">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -89,8 +89,8 @@
                     <!-- Remember -->
                     <div class="flex items-center gap-2">
                         <input id="remember" type="checkbox" name="remember"
-                            class="w-4 h-4 rounded border-white/20 bg-slate-800 text-amber-500">
-                        <label for="remember" class="text-slate-400 text-sm cursor-pointer">Ingat saya</label>
+                            class="w-4 h-4 rounded border-white/20 bg-blue-800 text-lime-500">
+                        <label for="remember" class="text-blue-400 text-sm cursor-pointer">Ingat saya</label>
                     </div>
 
                     <!-- Submit -->
@@ -104,7 +104,7 @@
                 </form>
             </div>
 
-            <p class="text-center text-slate-600 text-xs mt-6">
+            <p class="text-center text-blue-600 text-xs mt-6">
                 Halaman ini hanya untuk anggota BEM Polbis yang berwenang.
             </p>
         </div>

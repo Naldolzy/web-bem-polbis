@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="max-w-2xl">
-    <a href="{{ route('admin.struktur.index') }}" class="inline-flex items-center gap-2 text-slate-400 hover:text-amber-500 text-sm mb-6 transition-colors">
+    <a href="{{ route('admin.struktur.index') }}" class="inline-flex items-center gap-2 text-blue-400 hover:text-lime-500 text-sm mb-6 transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -45,7 +45,7 @@
             <div>
                 <label class="form-label">Urutan Tampil</label>
                 <input type="number" name="urutan" value="{{ old('urutan', 0) }}" min="0" class="form-input" placeholder="0">
-                <p class="text-slate-600 text-xs mt-1">Angka lebih kecil = tampil lebih awal</p>
+                <p class="text-blue-600 text-xs mt-1">Angka lebih kecil = tampil lebih awal</p>
             </div>
 
             <!-- Foto Anggota - Drag & Drop -->
@@ -53,11 +53,11 @@
                 <label class="form-label">Foto Anggota</label>
                 <div class="dropzone" id="dropzone-foto" onclick="document.getElementById('foto').click()">
                     <div id="dz-content">
-                        <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                        <p class="text-slate-400 text-sm">Drag & drop foto atau <span class="text-amber-500">klik untuk pilih</span></p>
-                        <p class="text-slate-600 text-xs mt-1">JPG, PNG — max 2MB</p>
+                        <p class="text-blue-400 text-sm">Drag & drop foto atau <span class="text-lime-500">klik untuk pilih</span></p>
+                        <p class="text-blue-600 text-xs mt-1">JPG, PNG — max 2MB</p>
                     </div>
                     <img id="foto-preview" class="hidden w-20 h-20 rounded-full object-cover mx-auto">
                 </div>
@@ -69,7 +69,7 @@
                 <input type="checkbox" id="is_active" name="is_active" value="1" checked class="w-5 h-5 rounded">
                 <label for="is_active" class="cursor-pointer">
                     <div class="text-white font-medium text-sm">Aktif</div>
-                    <div class="text-slate-500 text-xs">Tampilkan di halaman struktur</div>
+                    <div class="text-blue-500 text-xs">Tampilkan di halaman struktur</div>
                 </label>
             </div>
 

@@ -6,7 +6,7 @@
 @section('content')
 
 <div class="max-w-2xl">
-    <a href="{{ route('admin.struktur.index') }}" class="inline-flex items-center gap-2 text-slate-400 hover:text-amber-500 text-sm mb-6 transition-colors">
+    <a href="{{ route('admin.struktur.index') }}" class="inline-flex items-center gap-2 text-blue-400 hover:text-lime-500 text-sm mb-6 transition-colors">
         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
         </svg>
@@ -56,7 +56,7 @@
                             <img src="{{ asset('storage/'.$struktur->foto) }}" class="w-14 h-14 rounded-full object-cover" alt="">
                             <div>
                                 <p class="text-white text-sm font-medium">Foto saat ini</p>
-                                <p class="text-slate-500 text-xs">Drop atau klik di bawah untuk mengganti</p>
+                                <p class="text-blue-500 text-xs">Drop atau klik di bawah untuk mengganti</p>
                             </div>
                         </div>
                         <button type="submit" form="form-delete-foto" onclick="return confirm('Hapus foto anggota?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
@@ -67,11 +67,11 @@
                 @endif
                 <div class="dropzone" id="dropzone-foto" onclick="document.getElementById('foto').click()">
                     <div id="dz-content">
-                        <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                        <p class="text-slate-400 text-sm">Drag & drop foto atau <span class="text-amber-500">klik untuk pilih</span></p>
-                        <p class="text-slate-600 text-xs mt-1">JPG, PNG — max 2MB</p>
+                        <p class="text-blue-400 text-sm">Drag & drop foto atau <span class="text-lime-500">klik untuk pilih</span></p>
+                        <p class="text-blue-600 text-xs mt-1">JPG, PNG — max 2MB</p>
                     </div>
                     <img id="foto-preview" class="hidden w-20 h-20 rounded-full object-cover mx-auto">
                 </div>
@@ -84,7 +84,7 @@
                        class="w-5 h-5 rounded">
                 <label for="is_active" class="cursor-pointer">
                     <div class="text-white font-medium text-sm">Aktif</div>
-                    <div class="text-slate-500 text-xs">Tampilkan di halaman struktur</div>
+                    <div class="text-blue-500 text-xs">Tampilkan di halaman struktur</div>
                 </label>
             </div>
 

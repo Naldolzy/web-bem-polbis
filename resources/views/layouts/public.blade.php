@@ -51,33 +51,33 @@
     {{-- Structured Data: Organization (hanya di beranda) --}}
     @if(request()->routeIs('beranda'))
         <script type="application/ld+json">
-                                                                                {
-                                                                                    "@@context": "https://schema.org",
-                                                                                    "@type": "Organization",
+                                                                                                                                            {
+                                                                                                                                                "@@context": "https://schema.org",
+                                                                                                                                                "@type": "Organization",
 
-                                                                                    "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
-                                                                                    "alternateName": "BEM Polbis",
-                                                                                    "url": "{{ url('/') }}",
-                                                                                    "logo": "{{ $seo_logo }}",
-                                                                                    "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
-                                                                                    "parentOrganization": {
-                                                                                        "@type": "CollegeOrUniversity",
-                                                                                        "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
-                                                                                    },
-                                                                                    "address": {
-                                                                                        "@type": "PostalAddress",
-                                                                                        "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
-                                                                                        "addressCountry": "ID"
-                                                                                    },
-                                                                                    "email": "{{ $seo_profil['email'] ?? '' }}",
-                                                                                    "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
-                                                                                    "sameAs": [
-                                                                                        "{{ $seo_profil['instagram'] ?? '' }}",
-                                                                                        "{{ $seo_profil['youtube'] ?? '' }}",
-                                                                                        "{{ $seo_profil['tiktok'] ?? '' }}"
-                                                                                    ]
-                                                                                }
-                                                                                </script>
+                                                                                                                                                "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
+                                                                                                                                                "alternateName": "BEM Polbis",
+                                                                                                                                                "url": "{{ url('/') }}",
+                                                                                                                                                "logo": "{{ $seo_logo }}",
+                                                                                                                                                "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
+                                                                                                                                                "parentOrganization": {
+                                                                                                                                                    "@type": "CollegeOrUniversity",
+                                                                                                                                                    "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
+                                                                                                                                                },
+                                                                                                                                                "address": {
+                                                                                                                                                    "@type": "PostalAddress",
+                                                                                                                                                    "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
+                                                                                                                                                    "addressCountry": "ID"
+                                                                                                                                                },
+                                                                                                                                                "email": "{{ $seo_profil['email'] ?? '' }}",
+                                                                                                                                                "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
+                                                                                                                                                "sameAs": [
+                                                                                                                                                    "{{ $seo_profil['instagram'] ?? '' }}",
+                                                                                                                                                    "{{ $seo_profil['youtube'] ?? '' }}",
+                                                                                                                                                    "{{ $seo_profil['tiktok'] ?? '' }}"
+                                                                                                                                                ]
+                                                                                                                                            }
+                                                                                                                                            </script>
     @endif
 
     {{-- Structured Data: Breadcrumb --}}
@@ -90,7 +90,7 @@
         #preloader {
             position: fixed;
             inset: 0;
-            background: #0f1c3f;
+            background: #1565C0;
             display: flex;
             align-items: center;
             justify-content: center;
@@ -101,8 +101,8 @@
         .spinner {
             width: 50px;
             height: 50px;
-            border: 3px solid rgba(201, 162, 39, 0.2);
-            border-top-color: #C9A227;
+            border: 3px solid rgba(107, 175, 42, 0.2);
+            border-top-color: #6BAF2A;
             border-radius: 50%;
             animation: spin 0.8s linear infinite;
         }
@@ -137,7 +137,7 @@
                             class="h-10 w-10 object-contain rounded-xl">
                     @else
                         <div
-                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center shadow-lg">
+                            class="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center shadow-lg">
                             <span class="text-gray-900 font-black text-sm">BEM</span>
                         </div>
                     @endif
@@ -145,7 +145,7 @@
                         <div class="text-white font-bold text-sm leading-tight">
                             {{ $profil_layout['nama_bem'] ?? 'BEM Polbis' }}
                         </div>
-                        <div class="text-amber-500 text-xs leading-tight">
+                        <div class="text-lime-500 text-xs leading-tight">
                             {{ $profil_layout['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}
                         </div>
                     </div>
@@ -174,9 +174,9 @@
                         <div
                             class="absolute top-full left-0 mt-1 w-48 invisible opacity-0 group-hover:visible group-hover:opacity-100 transition-all duration-200 z-50">
                             <div
-                                class="bg-slate-900/95 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl overflow-hidden p-1">
+                                class="bg-blue-900/95 backdrop-blur-md border border-white/10 rounded-xl shadow-2xl overflow-hidden p-1">
                                 <a href="{{ route('struktur') }}"
-                                    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-slate-300 hover:text-amber-500 hover:bg-white/05 transition-colors {{ request()->routeIs('struktur') ? 'text-amber-500 bg-white/05' : '' }}">
+                                    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-blue-300 hover:text-lime-500 hover:bg-white/05 transition-colors {{ request()->routeIs('struktur') ? 'text-lime-500 bg-white/05' : '' }}">
                                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -185,7 +185,7 @@
                                     Struktur BEM
                                 </a>
                                 <a href="{{ route('ormawa') }}"
-                                    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-slate-300 hover:text-amber-500 hover:bg-white/05 transition-colors {{ request()->routeIs('ormawa') ? 'text-amber-500 bg-white/05' : '' }}">
+                                    class="flex items-center gap-2.5 px-3 py-2.5 rounded-lg text-sm text-blue-300 hover:text-lime-500 hover:bg-white/05 transition-colors {{ request()->routeIs('ormawa') ? 'text-lime-500 bg-white/05' : '' }}">
                                     <svg class="w-4 h-4 flex-shrink-0" fill="none" stroke="currentColor"
                                         viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -202,7 +202,7 @@
                 </div>
 
                 <!-- Mobile Toggle -->
-                <button id="menu-toggle" class="md:hidden text-gray-400 hover:text-amber-500 transition-colors p-2">
+                <button id="menu-toggle" class="md:hidden text-gray-400 hover:text-lime-500 transition-colors p-2">
                     <svg id="icon-menu" class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M4 6h16M4 12h16M4 18h16" />
@@ -225,7 +225,7 @@
                 <a href="{{ route('kegiatan') }}"
                     class="nav-link block {{ request()->routeIs('kegiatan*') ? 'active' : '' }}">Kegiatan</a>
                 <div class="pl-0">
-                    <div class="text-slate-500 text-xs px-3 pt-2 pb-1 uppercase tracking-wider">Organisasi</div>
+                    <div class="text-blue-500 text-xs px-3 pt-2 pb-1 uppercase tracking-wider">Organisasi</div>
                     <a href="{{ route('struktur') }}"
                         class="nav-link block pl-5 {{ request()->routeIs('struktur') ? 'active' : '' }}">↳ Struktur
                         BEM</a>
@@ -252,10 +252,10 @@
                 <div class="flex items-center gap-4">
                     @if(!empty($profil_layout['logo_bem']))
                         <img src="{{ asset('storage/' . $profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-12 w-12 object-contain rounded-xl flex-shrink-0">
+                            class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
                     @else
                         <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-amber-500 to-amber-600 flex items-center justify-center flex-shrink-0 shadow-lg">
+                            class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center flex-shrink-0 shadow-lg">
                             <span class="text-gray-900 font-black text-sm">BEM</span>
                         </div>
                     @endif
@@ -263,12 +263,12 @@
                         <div class="text-white font-bold text-base leading-tight">
                             {{ $profil_layout['nama_bem'] ?? 'BEM Polbis' }}
                         </div>
-                        <div class="text-slate-400 text-xs mt-0.5 max-w-xs leading-relaxed">
+                        <div class="text-blue-400 text-xs mt-0.5 max-w-xs leading-relaxed">
                             Badan Eksekutif Mahasiswa
                             {{ $profil_layout['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}
                         </div>
-                        <div class="text-amber-500/70 text-xs mt-1">Periode
-                            {{ $profil_layout['periode'] ?? '2025/2026' }}
+                        <div class="text-lime-500/70 text-xs mt-1">Periode
+                            {{ $profil_layout['periode'] ?? '2024/2028' }}
                         </div>
                     </div>
                 </div>
@@ -278,36 +278,38 @@
                 <div class="sm:hidden w-full h-px bg-white/10"></div>
 
                 <!-- Kanan: Kampus -->
-                <div class="flex items-center gap-4">
-                    <div class="text-right">
-                        <div class="text-white font-bold text-base leading-tight">
-                            {{ $profil_layout['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}
+                <a href="https://share.google/IyB4fSntEhQkRyFmQ" target="_blank" rel="noopener">
+                    <div class="flex items-center gap-4">
+                        <div class="text-right">
+                            <div class="text-white font-bold text-base leading-tight">
+                                {{ $profil_layout['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}
+                            </div>
+                            <div class="text-blue-400 text-xs mt-0.5">Perguruan Tinggi Vokasi</div>
+                            @if(!empty($profil_layout['alamat']))
+                                <div class="text-blue-500 text-xs mt-1 truncate max-w-xs">
+                                    {{ Str::limit($profil_layout['alamat'], 50) }}
+                                </div>
+                            @endif
                         </div>
-                        <div class="text-slate-400 text-xs mt-0.5">Perguruan Tinggi Vokasi</div>
-                        @if(!empty($profil_layout['alamat']))
-                            <div class="text-slate-500 text-xs mt-1 truncate max-w-xs">
-                                {{ Str::limit($profil_layout['alamat'], 50) }}
+                        @if(!empty($profil_layout['logo_kampus']))
+                            <img src="{{ asset('storage/' . $profil_layout['logo_kampus']) }}" alt="Logo Kampus"
+                                class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
+                        @else
+                            <div
+                                class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-lg">
+                                <span class="text-blue-800 font-black text-[10px] text-center leading-tight">POLBIS</span>
                             </div>
                         @endif
                     </div>
-                    @if(!empty($profil_layout['logo_kampus']))
-                        <img src="{{ asset('storage/' . $profil_layout['logo_kampus']) }}" alt="Logo Kampus"
-                            class="h-12 w-12 object-contain rounded-xl flex-shrink-0">
-                    @else
-                        <div
-                            class="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500 to-indigo-700 flex items-center justify-center flex-shrink-0 shadow-lg">
-                            <span class="text-white font-black text-xs text-center leading-tight">POLBIS</span>
-                        </div>
-                    @endif
-                </div>
+                </a>
             </div>
             <div
-                class="text-sm border-t border-border/40 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-                <p style="text-xs text-text-tertiary">
-                    © 2026 Badan Eksekutif Mahasiswa - Politeknik Bisnis Digital
+                class="text-white text-xs border-t border-border/40 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
+                <p style="text-text-tertiary">
+                    &copy; 2026 Badan Eksekutif Mahasiswa - Politeknik Bisnis Digital
                     Indonesia
                 </p>
-                <p style="text-xs text-text-tertiary">
+                <p style="text-text-tertiary">
                     Built with 💙 by HIMA TRPL
                 </p>
             </div>

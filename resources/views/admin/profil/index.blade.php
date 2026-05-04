@@ -32,7 +32,7 @@
         {{-- ===== LOGO & BRANDING ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">🎨</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">🎨</div>
                 Logo & Branding
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -43,7 +43,7 @@
                         <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                             <div class="flex items-center gap-3">
                                 <img src="{{ asset('storage/'.$profil['logo_bem']) }}" class="h-12 w-12 object-contain rounded" alt="Logo BEM">
-                                <span class="text-slate-400 text-xs">Logo saat ini</span>
+                                <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_bem" onclick="return confirm('Hapus logo BEM?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
@@ -53,11 +53,11 @@
                     @endif
                     <div class="dropzone" id="dropzone-logo-bem" onclick="document.getElementById('logo_bem').click()">
                         <div class="dropzone-content" id="dz-logo-bem-content">
-                            <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                             </svg>
-                            <p class="text-slate-400 text-sm">Drop logo BEM atau klik</p>
-                            <p class="text-slate-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
+                            <p class="text-blue-400 text-sm">Drop logo BEM atau klik</p>
+                            <p class="text-blue-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
                         </div>
                         <img id="preview-logo-bem" class="hidden w-20 h-20 object-contain mx-auto">
                     </div>
@@ -72,7 +72,7 @@
                         <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                             <div class="flex items-center gap-3">
                                 <img src="{{ asset('storage/'.$profil['logo_kampus']) }}" class="h-12 w-12 object-contain rounded" alt="Logo Kampus">
-                                <span class="text-slate-400 text-xs">Logo saat ini</span>
+                                <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_kampus" onclick="return confirm('Hapus logo kampus?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
                                 <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
@@ -82,11 +82,11 @@
                     @endif
                     <div class="dropzone" id="dropzone-logo-kampus" onclick="document.getElementById('logo_kampus').click()">
                         <div class="dropzone-content" id="dz-logo-kampus-content">
-                            <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
                             </svg>
-                            <p class="text-slate-400 text-sm">Drop logo kampus atau klik</p>
-                            <p class="text-slate-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
+                            <p class="text-blue-400 text-sm">Drop logo kampus atau klik</p>
+                            <p class="text-blue-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
                         </div>
                         <img id="preview-logo-kampus" class="hidden w-20 h-20 object-contain mx-auto">
                     </div>
@@ -99,7 +99,7 @@
         {{-- ===== INFO DASAR ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">ℹ️</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">ℹ️</div>
                 Informasi Dasar BEM
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -127,8 +127,8 @@
                 @if(!empty($profil['foto_ketua']))
                     <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
-                            <img src="{{ asset('storage/'.$profil['foto_ketua']) }}" class="h-14 w-14 rounded-full object-cover border-2 border-amber-500/30" alt="Foto Ketua">
-                            <span class="text-slate-400 text-xs">Foto ketua saat ini</span>
+                            <img src="{{ asset('storage/'.$profil['foto_ketua']) }}" class="h-14 w-14 rounded-full object-cover border-2 border-lime-500/30" alt="Foto Ketua">
+                            <span class="text-blue-400 text-xs">Foto ketua saat ini</span>
                         </div>
                         <button type="submit" form="form-delete-foto_ketua" onclick="return confirm('Hapus foto ketua?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
                             <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
@@ -138,11 +138,11 @@
                 @endif
                 <div class="dropzone" id="dropzone-foto-ketua" onclick="document.getElementById('foto_ketua').click()">
                     <div class="dropzone-content" id="dz-foto-ketua-content">
-                        <svg class="w-8 h-8 text-slate-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                        <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
                         </svg>
-                        <p class="text-slate-400 text-sm">Drop foto ketua atau klik</p>
-                        <p class="text-slate-600 text-xs mt-1">JPG, PNG — max 2MB</p>
+                        <p class="text-blue-400 text-sm">Drop foto ketua atau klik</p>
+                        <p class="text-blue-600 text-xs mt-1">JPG, PNG — max 2MB</p>
                     </div>
                     <img id="preview-foto-ketua" class="hidden w-16 h-16 rounded-full object-cover mx-auto">
                 </div>
@@ -154,7 +154,7 @@
         {{-- ===== SAMBUTAN ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">💬</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">💬</div>
                 Sambutan Ketua
             </h3>
             <div>
@@ -166,7 +166,7 @@
         {{-- ===== VISI MISI ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">🎯</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">🎯</div>
                 Visi &amp; Misi
             </h3>
             <div class="space-y-5">
@@ -178,20 +178,20 @@
 
                 {{-- Misi Dinamis --}}
                 <div>
-                    <label class="form-label mb-3 block">Misi <span class="text-slate-500 font-normal text-xs">(bisa tambah / hapus)</span></label>
+                    <label class="form-label mb-3 block">Misi <span class="text-blue-500 font-normal text-xs">(bisa tambah / hapus)</span></label>
 
                     @if(isset($misi) && $misi->isNotEmpty())
                         <div class="space-y-2 mb-4" id="misi-list">
                             @foreach($misi as $i => $item)
                                 <div class="flex items-start gap-3 p-3 rounded-xl bg-white/03 border border-white/08">
-                                    <div class="w-7 h-7 rounded-lg bg-amber-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
-                                        <span class="text-amber-500 font-black text-xs">{{ $i+1 }}</span>
+                                    <div class="w-7 h-7 rounded-lg bg-lime-500/15 flex items-center justify-center flex-shrink-0 mt-0.5">
+                                        <span class="text-lime-500 font-black text-xs">{{ $i+1 }}</span>
                                     </div>
-                                    <p class="text-slate-300 text-sm leading-relaxed flex-1">{{ $item->isi }}</p>
+                                    <p class="text-blue-300 text-sm leading-relaxed flex-1">{{ $item->isi }}</p>
                                     {{-- Tombol hapus pakai form= (di luar main form) --}}
                                     <button type="submit" form="form-del-misi-{{ $item->id }}"
                                             onclick="return confirm('Hapus misi ini?')"
-                                            class="text-slate-600 hover:text-red-400 transition-colors mt-0.5 flex-shrink-0">
+                                            class="text-blue-600 hover:text-red-400 transition-colors mt-0.5 flex-shrink-0">
                                         <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"/>
                                         </svg>
@@ -200,7 +200,7 @@
                             @endforeach
                         </div>
                     @else
-                        <div class="p-4 rounded-xl bg-white/03 border border-dashed border-white/10 text-slate-500 text-sm text-center mb-4">
+                        <div class="p-4 rounded-xl bg-white/03 border border-dashed border-white/10 text-blue-500 text-sm text-center mb-4">
                             Belum ada misi. Tambahkan di bawah.
                         </div>
                     @endif
@@ -227,7 +227,7 @@
         {{-- ===== SEJARAH ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">📜</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">📜</div>
                 Sejarah BEM
             </h3>
             <div>
@@ -239,7 +239,7 @@
         {{-- ===== KONTAK ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">📞</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">📞</div>
                 Informasi Kontak & Sosial Media
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">

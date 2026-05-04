@@ -5,16 +5,16 @@
 
 @section('content')
 <div class="max-w-lg">
-    <div style="background: rgba(26, 45, 90, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
+    <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
         <div class="flex items-center gap-3 mb-6">
-            <div style="width:48px;height:48px;border-radius:12px;background:rgba(201,162,39,0.15);border:1px solid rgba(201,162,39,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
-                <svg style="width:24px;height:24px;color:#C9A227;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <div style="width:48px;height:48px;border-radius:12px;background:rgba(107,175,42,0.15);border:1px solid rgba(107,175,42,0.3);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+                <svg style="width:24px;height:24px;color:#6BAF2A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 7a2 2 0 012 2m4 0a6 6 0 01-7.743 5.743L11 17H9v2H7v2H4a1 1 0 01-1-1v-2.586a1 1 0 01.293-.707l5.964-5.964A6 6 0 1121 9z"/>
                 </svg>
             </div>
             <div>
                 <h2 class="text-white font-bold text-lg">Ganti Password</h2>
-                <p class="text-slate-400 text-sm">Akun: <span style="color:#C9A227;">{{ auth()->user()->email }}</span></p>
+                <p class="text-blue-400 text-sm">Akun: <span style="color:#6BAF2A;">{{ auth()->user()->email }}</span></p>
             </div>
         </div>
 

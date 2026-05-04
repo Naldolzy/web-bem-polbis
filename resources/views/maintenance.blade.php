@@ -11,7 +11,7 @@
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
             min-height: 100vh;
-            background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #0f172a 100%);
+            background: linear-gradient(135deg, #0a192f 0%, #1e293b 50%, #0a192f 100%);
             display: flex; align-items: center; justify-content: center;
             font-family: 'Plus Jakarta Sans', sans-serif;
             overflow: hidden;
