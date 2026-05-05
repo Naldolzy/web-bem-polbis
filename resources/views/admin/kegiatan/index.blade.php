@@ -10,9 +10,7 @@
         <p class="text-blue-400 text-sm">Total {{ $kegiatan->total() }} kegiatan ditemukan</p>
     </div>
     <a href="{{ route('admin.kegiatan.create') }}" class="btn-primary">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-        </svg>
+        <i data-lucide="plus" class="w-4 h-4"></i>
         Tambah Kegiatan
     </a>
 </div>
@@ -38,9 +36,7 @@
                                     <img src="{{ asset('storage/'.$item->foto) }}" class="w-full h-full object-cover" alt="">
                                 @else
                                     <div class="w-full h-full bg-blue-700 flex items-center justify-center">
-                                        <svg class="w-5 h-5 text-blue-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16"/>
-                                        </svg>
+                                        <i data-lucide="image" class="w-5 h-5 text-blue-500"></i>
                                     </div>
                                 @endif
                             </div>

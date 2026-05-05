@@ -7,9 +7,7 @@
 
 @if(session('success'))
     <div class="alert-success mb-6">
-        <svg class="w-5 h-5 text-green-400 flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
-        </svg>
+        <i data-lucide="check-circle" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
         {{ session('success') }}
     </div>
 @endif
@@ -55,9 +53,7 @@
                     @endif
                     <div class="dropzone" id="dropzone-logo-bem" onclick="document.getElementById('logo_bem').click()">
                         <div class="dropzone-content" id="dz-logo-bem-content">
-                            <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
+                            <i data-lucide="upload-cloud" class="w-8 h-8 text-blue-600 mx-auto mb-2"></i>
                             <p class="text-blue-400 text-sm">Drop logo BEM atau klik</p>
                             <p class="text-blue-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
                         </div>
@@ -77,7 +73,7 @@
                                 <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_kampus" onclick="return confirm('Hapus logo kampus?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                <i data-lucide="trash-2" class="w-3 h-3"></i>
                                 Hapus
                             </button>
                         </div>

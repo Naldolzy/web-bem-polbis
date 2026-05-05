@@ -6,9 +6,7 @@
 @section('content')
 <div class="max-w-xl">
     <a href="{{ route('admin.users.index') }}" class="inline-flex items-center gap-2 text-blue-400 hover:text-white text-sm mb-6 transition-colors">
-        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-        </svg>
+        <i data-lucide="arrow-left" class="w-4 h-4"></i>
         Kembali ke Daftar Admin
     </a>
 
@@ -62,9 +60,7 @@
 
             <div class="pt-2 mt-4">
                 <button type="submit" class="btn-primary w-full justify-center">
-                    <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                    </svg>
+                    <i data-lucide="save" class="w-4 h-4"></i>
                     Simpan Perubahan
                 </button>
             </div>
