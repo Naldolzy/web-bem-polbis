@@ -39,7 +39,10 @@
     @if(!$isLocked)
     {{-- Lock Form --}}
     <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
-        <h3 class="text-white font-bold mb-1">🔒 Kunci Website</h3>
+        <h3 class="text-white font-bold mb-1 flex items-center gap-2">
+            <i data-lucide="lock" class="w-4 h-4 text-red-400"></i>
+            Kunci Website
+        </h3>
         <p class="text-blue-400 text-sm mb-5">Pengunjung umum akan diarahkan ke halaman maintenance. Admin tetap bisa akses panel.</p>
 
         <form method="POST" action="{{ route('admin.site-settings.lock') }}">
@@ -55,9 +58,7 @@
                 style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.5rem; background:rgba(239,68,68,0.15); color:#f87171; border:1px solid rgba(239,68,68,0.3); font-weight:bold; padding:0.75rem 1.5rem; border-radius:0.75rem; transition:all 0.3s; cursor:pointer;"
                 onmouseover="this.style.background='rgba(239,68,68,0.25)'" onmouseout="this.style.background='rgba(239,68,68,0.15)'"
                 onclick="return confirm('Yakin ingin mengunci website? Pengunjung tidak bisa mengakses halaman publik.')">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"/>
-                </svg>
+                <i data-lucide="lock" class="w-4 h-4"></i>
                 Kunci Website Sekarang
             </button>
         </form>
@@ -66,7 +67,10 @@
     @else
     {{-- Unlock Form --}}
     <div style="background: rgba(21, 101, 192, 0.35); border: 1px solid rgba(255,255,255,0.07); border-radius: 1rem; padding: 1.5rem;">
-        <h3 class="text-white font-bold mb-1">🔓 Buka Kunci Website</h3>
+        <h3 class="text-white font-bold mb-1 flex items-center gap-2">
+            <i data-lucide="lock-open" class="w-4 h-4 text-green-400"></i>
+            Buka Kunci Website
+        </h3>
         <p class="text-blue-400 text-sm mb-5">Pengunjung kembali bisa mengakses semua halaman publik secara normal.</p>
 
         <form method="POST" action="{{ route('admin.site-settings.unlock') }}">
@@ -74,9 +78,7 @@
             <button type="submit"
                 style="width:100%; display:flex; align-items:center; justify-content:center; gap:0.5rem; background:rgba(34,197,94,0.15); color:#4ade80; border:1px solid rgba(34,197,94,0.3); font-weight:bold; padding:0.75rem 1.5rem; border-radius:0.75rem; transition:all 0.3s; cursor:pointer;"
                 onmouseover="this.style.background='rgba(34,197,94,0.25)'" onmouseout="this.style.background='rgba(34,197,94,0.15)'">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 11V7a4 4 0 118 0m-4 8v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2z"/>
-                </svg>
+                <i data-lucide="lock-open" class="w-4 h-4"></i>
                 Buka Kunci Website
             </button>
         </form>
@@ -86,9 +88,7 @@
     {{-- Info Box --}}
     <div style="background:rgba(107,175,42,0.08); border:1px solid rgba(107,175,42,0.2); border-radius:0.75rem; padding:1rem;">
         <div class="flex gap-3">
-            <svg class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#6BAF2A;" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"/>
-            </svg>
+            <i data-lucide="info" class="w-5 h-5 flex-shrink-0 mt-0.5" style="color:#6BAF2A;"></i>
             <div>
                 <p style="color:#6BAF2A; font-weight:600; font-size:0.875rem; margin-bottom:0.25rem;">Catatan Penting</p>
                 <ul class="text-blue-400 text-sm space-y-1">

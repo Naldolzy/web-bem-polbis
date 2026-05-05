@@ -135,7 +135,7 @@
                 [{ 'color': [] }, { 'background': [] }],
                 [{ 'list': 'ordered'}, { 'list': 'bullet' }],
                 [{ 'align': [] }],
-                ['link', 'blockquote', 'code-block'],
+                ['link', 'image', 'blockquote', 'code-block'],
                 ['clean']
             ]
         }

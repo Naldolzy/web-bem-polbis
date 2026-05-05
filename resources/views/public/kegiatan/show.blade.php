@@ -56,17 +56,17 @@
 
         <!-- Content -->
         @if($kegiatan->konten)
-            <div class="prose prose-lg prose-slate prose-blue max-w-none text-slate-600 mb-12" style="line-height: 1.8;">
-                {!! nl2br(e($kegiatan->konten)) !!}
+            <div class="prose prose-lg prose-slate max-w-none mb-12"
+                 style="line-height:1.9; color:#475569;"
+            >
+                {!! $kegiatan->konten !!}
             </div>
         @endif
 
         <!-- Back Button -->
         <div class="flex items-center justify-between mt-12 pt-8 border-t border-slate-200">
-            <a href="{{ route('kegiatan') }}" class="btn-secondary">
-                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"/>
-                </svg>
+            <a href="{{ route('kegiatan') }}" class="btn-secondary inline-flex items-center gap-2">
+                <i data-lucide="arrow-left" class="w-4 h-4"></i>
                 Kembali ke Kegiatan
             </a>
         </div>
