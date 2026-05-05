@@ -157,6 +157,156 @@ input[type="checkbox"].custom-check:hover {
 }
 
 /* ===========================
+   QUILL RICH TEXT EDITOR — Dark Theme Fix
+=========================== */
+
+/* Toolbar dark */
+.ql-toolbar.ql-snow {
+    background: rgba(8, 50, 114, 0.7) !important;
+    border: none !important;
+    border-bottom: 1px solid rgba(255,255,255,0.12) !important;
+    border-radius: 0.75rem 0.75rem 0 0;
+    padding: 8px 10px !important;
+}
+
+/* Editor area */
+.ql-container.ql-snow {
+    border: none !important;
+    border-radius: 0 0 0.75rem 0.75rem;
+    font-size: 0.9rem;
+}
+
+.ql-editor {
+    min-height: 220px;
+    color: #e2e8f0 !important;
+    background: rgba(21, 101, 192, 0.15) !important;
+    line-height: 1.8;
+}
+
+.ql-editor.ql-blank::before {
+    color: rgba(147, 197, 253, 0.5) !important;
+    font-style: normal !important;
+}
+
+/* Toolbar buttons */
+.ql-toolbar .ql-stroke {
+    stroke: #93c5fd !important;
+}
+
+.ql-toolbar .ql-fill {
+    fill: #93c5fd !important;
+}
+
+.ql-toolbar button:hover .ql-stroke,
+.ql-toolbar button.ql-active .ql-stroke {
+    stroke: #86efac !important;
+}
+
+.ql-toolbar button:hover .ql-fill,
+.ql-toolbar button.ql-active .ql-fill {
+    fill: #86efac !important;
+}
+
+/* Picker (dropdown header select) */
+.ql-toolbar .ql-picker {
+    color: #93c5fd !important;
+}
+
+.ql-toolbar .ql-picker-label {
+    color: #93c5fd !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+
+.ql-toolbar .ql-picker-label:hover {
+    color: #86efac !important;
+}
+
+/* Heading dropdown popup — dark themed */
+.ql-picker-options {
+    background: #0f2d5e !important;
+    border: 1px solid rgba(255,255,255,0.15) !important;
+    border-radius: 0.5rem !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+    z-index: 9999 !important;
+    padding: 4px !important;
+    overflow: hidden;
+}
+
+.ql-picker-item {
+    color: #bfdbfe !important;
+    font-size: 0.85rem !important;
+    padding: 6px 10px !important;
+    border-radius: 4px !important;
+    transition: background 0.15s ease;
+}
+
+.ql-picker-item:hover,
+.ql-picker-item.ql-selected {
+    background: rgba(99, 179, 237, 0.15) !important;
+    color: #86efac !important;
+}
+
+/* Fix heading sizes inside dropdown to be reasonable */
+.ql-picker-options .ql-picker-item[data-value="1"] { font-size: 0.9rem !important; font-weight: bold; }
+.ql-picker-options .ql-picker-item[data-value="2"] { font-size: 0.875rem !important; font-weight: 600; }
+.ql-picker-options .ql-picker-item[data-value="3"] { font-size: 0.85rem !important; }
+.ql-picker-options .ql-picker-item:not([data-value]) { font-size: 0.85rem !important; }
+
+/* Link tooltip — CRITICAL FIX: keep inside viewport */
+.ql-tooltip {
+    background: #0f2d5e !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 0.5rem !important;
+    color: #bfdbfe !important;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.4) !important;
+    white-space: nowrap;
+    z-index: 9999 !important;
+}
+
+/* Reposition tooltip so it doesn't overflow below */
+.ql-tooltip[data-mode="link"]::before {
+    content: "URL:" !important;
+    color: #93c5fd;
+}
+
+.ql-tooltip input[type=text] {
+    background: rgba(255,255,255,0.07) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    border-radius: 0.375rem !important;
+    color: #e2e8f0 !important;
+    padding: 4px 8px !important;
+    outline: none !important;
+}
+
+.ql-tooltip a.ql-action,
+.ql-tooltip a.ql-remove {
+    color: #86efac !important;
+    margin-left: 8px;
+}
+
+.ql-tooltip a.ql-action:hover,
+.ql-tooltip a.ql-remove:hover {
+    color: #4ade80 !important;
+}
+
+/* Blockquote & code block */
+.ql-editor blockquote {
+    border-left: 4px solid #1565C0 !important;
+    color: #93c5fd !important;
+    background: rgba(21,101,192,0.1);
+    padding: 8px 16px;
+    border-radius: 0 0.5rem 0.5rem 0;
+    margin: 8px 0;
+}
+
+.ql-editor pre.ql-syntax {
+    background: rgba(0,0,0,0.3) !important;
+    color: #86efac !important;
+    border-radius: 0.5rem;
+    font-size: 0.82rem;
+}
+
+/* ===========================
    NAVBAR
 =========================== */
 .navbar {

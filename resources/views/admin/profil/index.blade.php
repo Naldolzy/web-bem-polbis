@@ -32,7 +32,9 @@
         {{-- ===== LOGO & BRANDING ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">🎨</div>
+                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">
+                    <i data-lucide="image" class="w-4 h-4 text-lime-400"></i>
+                </div>
                 Logo & Branding
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -46,7 +48,7 @@
                                 <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_bem" onclick="return confirm('Hapus logo BEM?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
-                                <svg class="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"/></svg>
+                                <i data-lucide="trash-2" class="w-3 h-3"></i>
                                 Hapus
                             </button>
                         </div>
@@ -82,9 +84,7 @@
                     @endif
                     <div class="dropzone" id="dropzone-logo-kampus" onclick="document.getElementById('logo_kampus').click()">
                         <div class="dropzone-content" id="dz-logo-kampus-content">
-                            <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"/>
-                            </svg>
+                            <i data-lucide="cloud-upload" class="w-8 h-8 text-blue-500 mx-auto mb-2"></i>
                             <p class="text-blue-400 text-sm">Drop logo kampus atau klik</p>
                             <p class="text-blue-600 text-xs mt-1">PNG, SVG, JPG — max 2MB</p>
                         </div>
@@ -99,7 +99,9 @@
         {{-- ===== INFO DASAR ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">ℹ️</div>
+                <div class="w-8 h-8 rounded-lg bg-blue-500/20 flex items-center justify-center">
+                    <i data-lucide="info" class="w-4 h-4 text-blue-400"></i>
+                </div>
                 Informasi Dasar BEM
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -138,9 +140,7 @@
                 @endif
                 <div class="dropzone" id="dropzone-foto-ketua" onclick="document.getElementById('foto_ketua').click()">
                     <div class="dropzone-content" id="dz-foto-ketua-content">
-                        <svg class="w-8 h-8 text-blue-600 mx-auto mb-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z"/>
-                        </svg>
+                        <i data-lucide="user-round" class="w-8 h-8 text-blue-500 mx-auto mb-2"></i>
                         <p class="text-blue-400 text-sm">Drop foto ketua atau klik</p>
                         <p class="text-blue-600 text-xs mt-1">JPG, PNG — max 2MB</p>
                     </div>
@@ -154,7 +154,9 @@
         {{-- ===== SAMBUTAN ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">💬</div>
+                <div class="w-8 h-8 rounded-lg bg-purple-500/20 flex items-center justify-center">
+                    <i data-lucide="message-square-quote" class="w-4 h-4 text-purple-400"></i>
+                </div>
                 Sambutan Ketua
             </h3>
             <div>
@@ -166,8 +168,10 @@
         {{-- ===== VISI MISI ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">🎯</div>
-                Visi &amp; Misi
+                <div class="w-8 h-8 rounded-lg bg-amber-500/20 flex items-center justify-center">
+                    <i data-lucide="target" class="w-4 h-4 text-amber-400"></i>
+                </div>
+                Visi & Misi
             </h3>
             <div class="space-y-5">
                 {{-- Visi (tetap 1) --}}
@@ -214,9 +218,7 @@
                         </div>
                         <button type="button" onclick="submitMisi()"
                                 class="btn-primary py-2 px-4 flex-shrink-0" style="height:fit-content">
-                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 4v16m8-8H4"/>
-                            </svg>
+                            <i data-lucide="plus" class="w-4 h-4"></i>
                             Tambah
                         </button>
                     </div>
@@ -227,7 +229,9 @@
         {{-- ===== SEJARAH ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">📜</div>
+                <div class="w-8 h-8 rounded-lg bg-orange-500/20 flex items-center justify-center">
+                    <i data-lucide="scroll-text" class="w-4 h-4 text-orange-400"></i>
+                </div>
                 Sejarah BEM
             </h3>
             <div>
@@ -239,7 +243,9 @@
         {{-- ===== KONTAK ===== --}}
         <div class="card-glass rounded-2xl p-8">
             <h3 class="text-white font-bold text-lg mb-6 flex items-center gap-2">
-                <div class="w-8 h-8 rounded-lg bg-lime-500/20 flex items-center justify-center">📞</div>
+                <div class="w-8 h-8 rounded-lg bg-teal-500/20 flex items-center justify-center">
+                    <i data-lucide="phone" class="w-4 h-4 text-teal-400"></i>
+                </div>
                 Informasi Kontak & Sosial Media
             </h3>
             <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
@@ -272,9 +278,7 @@
 
         <div class="flex gap-3">
             <button type="submit" class="btn-primary">
-                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
-                </svg>
+                <i data-lucide="save" class="w-5 h-5"></i>
                 Simpan Semua Perubahan
             </button>
         </div>

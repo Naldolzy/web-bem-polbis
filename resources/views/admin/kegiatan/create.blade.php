@@ -126,14 +126,26 @@
         }
     });
 
-    // Style the Quill toolbar for dark theme
-    document.querySelector('.ql-toolbar').style.cssText = 'background: rgba(8,50,114,0.6); border: none; border-bottom: 1px solid rgba(255,255,255,0.12); padding: 8px;';
-    document.querySelector('.ql-container').style.cssText = 'border: none;';
-    document.querySelectorAll('.ql-toolbar button, .ql-toolbar .ql-picker').forEach(el => {
-        el.style.color = '#93c5fd';
-    });
-    document.querySelectorAll('.ql-toolbar .ql-stroke').forEach(el => {
-        el.style.stroke = '#93c5fd';
+    // Fix: reposition tooltip so it never overflows outside the editor
+    quill.on('selection-change', function() {
+        setTimeout(() => {
+            const tooltip = document.querySelector('.ql-tooltip');
+            if (!tooltip) return;
+            const rect = tooltip.getBoundingClientRect();
+            const container = document.getElementById('quill-konten-container').getBoundingClientRect();
+            // If tooltip goes below viewport, flip it above
+            if (rect.bottom > window.innerHeight) {
+                tooltip.style.top = (parseFloat(tooltip.style.top) - rect.height - 30) + 'px';
+            }
+            // If tooltip goes right of container, align to right
+            if (rect.right > container.right) {
+                tooltip.style.left = (container.width - rect.width - 8) + 'px';
+            }
+            // If tooltip goes left
+            if (rect.left < container.left) {
+                tooltip.style.left = '0px';
+            }
+        }, 50);
     });
 
     // Before submit, copy Quill HTML to hidden input
