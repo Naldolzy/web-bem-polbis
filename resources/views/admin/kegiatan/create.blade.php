@@ -108,53 +108,7 @@
 @include('admin._partials.dropzone-script')
 
 @push('scripts')
-<script>
-    // Init Quill editor
-    const quill = new Quill('#quill-konten', {
-        theme: 'snow',
-        placeholder: 'Tulis konten lengkap kegiatan di sini...',
-        modules: {
-            toolbar: [
-                [{ 'header': [1, 2, 3, false] }],
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                ['link', 'image', 'blockquote', 'code-block'],
-                ['clean']
-            ]
-        }
-    });
-
-    // Fix: reposition tooltip so it never overflows outside the editor
-    quill.on('selection-change', function() {
-        setTimeout(() => {
-            const tooltip = document.querySelector('.ql-tooltip');
-            if (!tooltip) return;
-            const rect = tooltip.getBoundingClientRect();
-            const container = document.getElementById('quill-konten-container').getBoundingClientRect();
-            // If tooltip goes below viewport, flip it above
-            if (rect.bottom > window.innerHeight) {
-                tooltip.style.top = (parseFloat(tooltip.style.top) - rect.height - 30) + 'px';
-            }
-            // If tooltip goes right of container, align to right
-            if (rect.right > container.right) {
-                tooltip.style.left = (container.width - rect.width - 8) + 'px';
-            }
-            // If tooltip goes left
-            if (rect.left < container.left) {
-                tooltip.style.left = '0px';
-            }
-        }, 50);
-    });
-
-    // Before submit, copy Quill HTML to hidden input
-    document.getElementById('form-kegiatan').addEventListener('submit', function() {
-        document.getElementById('konten-hidden').value = quill.root.innerHTML;
-    });
-
-    lucide.createIcons();
-</script>
+@include('admin._partials.quill-script')
 @endpush
 
 @endsection

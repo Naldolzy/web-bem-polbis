@@ -124,48 +124,7 @@
 @include('admin._partials.dropzone-script')
 
 @push('scripts')
-<script>
-    const quill = new Quill('#quill-konten', {
-        theme: 'snow',
-        placeholder: 'Tulis konten lengkap kegiatan di sini...',
-        modules: {
-            toolbar: [
-                [{ 'header': [1, 2, 3, false] }],
-                ['bold', 'italic', 'underline', 'strike'],
-                [{ 'color': [] }, { 'background': [] }],
-                [{ 'list': 'ordered'}, { 'list': 'bullet' }],
-                [{ 'align': [] }],
-                ['link', 'image', 'blockquote', 'code-block'],
-                ['clean']
-            ]
-        }
-    });
-
-    // Fix: reposition tooltip so it never overflows outside the editor
-    quill.on('selection-change', function() {
-        setTimeout(() => {
-            const tooltip = document.querySelector('.ql-tooltip');
-            if (!tooltip) return;
-            const rect = tooltip.getBoundingClientRect();
-            const container = document.getElementById('quill-konten-container').getBoundingClientRect();
-            if (rect.bottom > window.innerHeight) {
-                tooltip.style.top = (parseFloat(tooltip.style.top) - rect.height - 30) + 'px';
-            }
-            if (rect.right > container.right) {
-                tooltip.style.left = (container.width - rect.width - 8) + 'px';
-            }
-            if (rect.left < container.left) {
-                tooltip.style.left = '0px';
-            }
-        }, 50);
-    });
-
-    document.getElementById('form-kegiatan').addEventListener('submit', function() {
-        document.getElementById('konten-hidden').value = quill.root.innerHTML;
-    });
-
-    lucide.createIcons();
-</script>
+@include('admin._partials.quill-script')
 @endpush
 
 @endsection
