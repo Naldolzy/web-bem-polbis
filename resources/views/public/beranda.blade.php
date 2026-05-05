@@ -204,7 +204,11 @@
 <section class="py-20">
     <div class="max-w-3xl mx-auto px-4 text-center reveal">
         <div class="bg-white shadow-xl shadow-blue-900/5 p-12 rounded-3xl border border-slate-200">
-            <div class="text-5xl mb-4">💬</div>
+            <div class="flex justify-center mb-5">
+                <div class="w-16 h-16 rounded-2xl bg-gradient-to-br from-blue-100 to-lime-100 flex items-center justify-center shadow-md">
+                    <i data-lucide="message-circle-heart" class="w-8 h-8 text-blue-600"></i>
+                </div>
+            </div>
             <h2 class="section-title mb-4">Ada Pertanyaan<br>atau <span>Aspirasi?</span></h2>
             <p class="text-blue-400 mb-8">Hubungi kami dan sampaikan aspirasi kamu. BEM Polbis siap mendengar dan merespons setiap masukan dari mahasiswa.</p>
             <a href="{{ route('kontak') }}" class="btn-primary text-lg px-8 py-4">

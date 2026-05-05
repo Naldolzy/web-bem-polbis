@@ -86,6 +86,8 @@
     @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Lucide Icons --}}
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
     <style>
         #preloader {
             position: fixed;
@@ -358,6 +360,9 @@
             el.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(el);
         });
+
+        // Init Lucide Icons
+        lucide.createIcons();
     </script>
 </body>
 

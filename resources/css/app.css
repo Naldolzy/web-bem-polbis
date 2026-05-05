@@ -99,6 +99,63 @@ body {
     background: linear-gradient(to bottom, #083272, #4A8C1A);
 }
 
+/* === Custom Checkbox === */
+input[type="checkbox"].custom-check {
+    appearance: none;
+    -webkit-appearance: none;
+    width: 1.25rem;
+    height: 1.25rem;
+    border-radius: 0.375rem;
+    border: 2px solid rgba(255,255,255,0.25);
+    background: rgba(255,255,255,0.07);
+    cursor: pointer;
+    position: relative;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+}
+
+input[type="checkbox"].custom-check:checked {
+    background: linear-gradient(135deg, #1565C0, #6BAF2A);
+    border-color: transparent;
+}
+
+input[type="checkbox"].custom-check:checked::after {
+    content: '';
+    position: absolute;
+    left: 4px;
+    top: 1px;
+    width: 6px;
+    height: 10px;
+    border: 2px solid #fff;
+    border-top: none;
+    border-left: none;
+    transform: rotate(45deg);
+}
+
+input[type="checkbox"].custom-check:hover {
+    border-color: rgba(107, 175, 42, 0.6);
+}
+
+/* Fix icon vertical centering in form inputs */
+.input-icon-wrap {
+    position: relative;
+}
+
+.input-icon-wrap .input-icon {
+    position: absolute;
+    left: 0.875rem;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    color: #3b82f6;
+    display: flex;
+    align-items: center;
+}
+
+.input-icon-wrap input {
+    padding-left: 2.75rem;
+}
+
 /* ===========================
    NAVBAR
 =========================== */

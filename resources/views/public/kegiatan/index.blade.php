@@ -67,9 +67,7 @@
                         </div>
                         <div class="p-5">
                             <div class="text-blue-500 text-xs mb-2 flex items-center gap-1">
-                                <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
-                                </svg>
+                                <i data-lucide="calendar" class="w-3.5 h-3.5"></i>
                                 {{ $item->tanggal_kegiatan->format('d F Y') }}
                             </div>
                             <h2 class="text-white font-bold text-base leading-snug mb-2 line-clamp-2">{{ $item->judul }}</h2>
@@ -77,9 +75,7 @@
                             <a href="{{ route('kegiatan.show', $item->slug) }}"
                                class="text-lime-500 text-sm font-semibold hover:text-lime-400 transition-colors inline-flex items-center gap-1">
                                 Baca Selengkapnya
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
-                                </svg>
+                               <i data-lucide="chevron-right" class="w-4 h-4"></i>
                             </a>
                         </div>
                     </article>
@@ -93,8 +89,12 @@
 
         @else
             <div class="text-center py-20">
-                <div class="text-7xl mb-4">📭</div>
-                <h3 class="text-white font-semibold text-xl mb-2">Belum Ada Kegiatan</h3>
+                <div class="flex justify-center mb-5">
+                    <div class="w-20 h-20 rounded-3xl bg-gradient-to-br from-slate-100 to-blue-50 flex items-center justify-center shadow-sm border border-slate-200">
+                        <i data-lucide="calendar-x" class="w-9 h-9 text-blue-400"></i>
+                    </div>
+                </div>
+                <h3 class="text-blue-900 font-semibold text-xl mb-2">Belum Ada Kegiatan</h3>
                 <p class="text-blue-400">Kegiatan akan segera ditambahkan. Pantau terus ya!</p>
             </div>
         @endif

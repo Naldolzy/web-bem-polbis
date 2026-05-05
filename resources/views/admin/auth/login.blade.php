@@ -6,6 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Admin | BEM Polbis</title>
     @vite(['resources/css/app.css', 'resources/js/app.js'])
+    {{-- Lucide Icons --}}
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
 </head>
 
 <body class="antialiased" style="background: #0a192f;">
@@ -45,16 +47,13 @@
                     <!-- Email -->
                     <div>
                         <label for="email" class="form-label">Email Admin</label>
-                        <div class="relative">
-                            <div class="absolute left-3.5 top-1/2 -tranblue-y-1/2 text-blue-500 pointer-events-none">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
-                                </svg>
-                            </div>
+                        <div class="input-icon-wrap">
+                            <span class="input-icon">
+                                <i data-lucide="mail" class="w-4 h-4"></i>
+                            </span>
                             <input id="email" type="email" name="email" value="{{ old('email') }}" required autofocus
                                 class="form-input @error('email') border-red-500 @enderror"
-                                style="padding-left: 2.75rem;" placeholder="admin@bem-polbis.ac.id">
+                                placeholder="admin@bem-polbis.ac.id">
                         </div>
                         @error('email')
                             <p class="text-red-400 text-xs mt-1.5">{{ $message }}</p>
@@ -64,41 +63,30 @@
                     <!-- Password -->
                     <div>
                         <label for="password" class="form-label">Password</label>
-                        <div class="relative">
-                            <div class="absolute left-3.5 top-1/2 -tranblue-y-1/2 text-blue-500 pointer-events-none">
-                                <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" />
-                                </svg>
-                            </div>
+                        <div class="input-icon-wrap">
+                            <span class="input-icon">
+                                <i data-lucide="lock-keyhole" class="w-4 h-4"></i>
+                            </span>
                             <input id="password" type="password" name="password" required class="form-input"
-                                style="padding-left: 2.75rem;" placeholder="••••••••">
+                                style="padding-right: 3rem;" placeholder="••••••••">
                             <button type="button" onclick="togglePassword()"
-                                class="absolute right-3 top-1/2 -tranblue-y-1/2 text-blue-500 hover:text-lime-500 transition-colors">
-                                <svg id="eye-icon" class="w-4 h-4" fill="none" stroke="currentColor"
-                                    viewBox="0 0 24 24">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M15 12a3 3 0 11-6 0 3 3 0 016 0z" />
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                        d="M2.458 12C3.732 7.943 7.523 5 12 5c4.478 0 8.268 2.943 9.542 7-1.274 4.057-5.064 7-9.542 7-4.477 0-8.268-2.943-9.542-7z" />
-                                </svg>
+                                class="absolute right-3 top-1/2 -translate-y-1/2 text-blue-400 hover:text-lime-400 transition-colors"
+                                id="eye-toggle">
+                                <i data-lucide="eye" class="w-4 h-4" id="eye-icon"></i>
                             </button>
                         </div>
                     </div>
 
                     <!-- Remember -->
-                    <div class="flex items-center gap-2">
-                        <input id="remember" type="checkbox" name="remember"
-                            class="w-4 h-4 rounded border-white/20 bg-blue-800 text-lime-500">
-                        <label for="remember" class="text-blue-400 text-sm cursor-pointer">Ingat saya</label>
+                    <div class="flex items-center gap-3">
+                        <input id="remember" type="checkbox" name="remember" class="custom-check">
+                        <label for="remember" class="text-blue-400 text-sm cursor-pointer select-none">Ingat
+                            saya</label>
                     </div>
 
                     <!-- Submit -->
                     <button type="submit" id="login-btn" class="btn-primary w-full justify-center">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M11 16l-4-4m0 0l4-4m-4 4h14m-5 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h7a3 3 0 013 3v1" />
-                        </svg>
+                        <i data-lucide="log-in" class="w-5 h-5"></i>
                         Masuk ke Panel Admin
                     </button>
                 </form>
@@ -111,9 +99,19 @@
     </div>
 
     <script>
+        lucide.createIcons();
+
         function togglePassword() {
             const input = document.getElementById('password');
-            input.type = input.type === 'password' ? 'text' : 'password';
+            const icon = document.getElementById('eye-icon');
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.setAttribute('data-lucide', 'eye-off');
+            } else {
+                input.type = 'password';
+                icon.setAttribute('data-lucide', 'eye');
+            }
+            lucide.createIcons();
         }
     </script>
 
