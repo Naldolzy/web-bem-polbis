@@ -34,7 +34,7 @@
 
         <!-- Badge -->
         <div class="flex items-center gap-3 mb-4">
-            <span class="badge-kategori">{{ $kegiatan->kategori }}</span>
+            <x-badge-kategori :kategori="$kegiatan->kategori ?? 'umum'" />
             <span class="text-blue-500 text-sm">{{ $kegiatan->tanggal_kegiatan->format('d F Y') }}</span>
         </div>
 

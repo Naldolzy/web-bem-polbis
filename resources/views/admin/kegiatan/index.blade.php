@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </td>
-                    <td><span class="badge-kategori">{{ $item->kategori }}</span></td>
+                    <td><x-badge-kategori :kategori="$item->kategori ?? 'umum'" /></td>
                     <td class="text-blue-400 text-sm">{{ $item->tanggal_kegiatan->format('d M Y') }}</td>
                     <td>
                         <span class="px-2.5 py-1 rounded-full text-xs font-semibold {{ $item->is_published ? 'bg-green-500/20 text-green-400 border border-green-500/30' : 'bg-blue-500/20 text-blue-400 border border-blue-500/30' }}">

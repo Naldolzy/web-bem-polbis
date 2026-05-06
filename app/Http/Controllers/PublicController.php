@@ -6,6 +6,7 @@ use App\Models\BemMisi;
 use App\Models\Kegiatan;
 use App\Models\Ormawa;
 use App\Models\ProfilBem;
+use App\Models\SiteSetting;
 use App\Models\Struktur;
 use Illuminate\Http\Request;
 
@@ -38,10 +39,11 @@ class PublicController extends Controller
             $query->where('kategori', $request->kategori);
         }
 
-        $kegiatan      = $query->paginate(9);
-        $kategori_list = Kegiatan::published()->distinct()->pluck('kategori');
+        $kegiatan       = $query->paginate(9);
+        $kategori_list  = Kegiatan::published()->distinct()->pluck('kategori');
+        $kategoriStyles = json_decode(SiteSetting::get('kategori_styles', '{}'), true) ?? [];
 
-        return view('public.kegiatan.index', compact('profil', 'kegiatan', 'kategori_list'));
+        return view('public.kegiatan.index', compact('profil', 'kegiatan', 'kategori_list', 'kategoriStyles'));
     }
 
     public function kegiatanDetail(string $slug)

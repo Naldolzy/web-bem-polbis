@@ -131,7 +131,7 @@
                                 </div>
                             @endif
                             <div class="absolute top-3 left-3">
-                                <span class="badge-kategori">{{ $item->kategori }}</span>
+                                <x-badge-kategori :kategori="$item->kategori ?? 'umum'" />
                             </div>
                         </div>
                         <div class="p-5">

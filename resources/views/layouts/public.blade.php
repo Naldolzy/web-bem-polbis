@@ -51,33 +51,33 @@
     {{-- Structured Data: Organization (hanya di beranda) --}}
     @if(request()->routeIs('beranda'))
         <script type="application/ld+json">
-                                                                                                                                            {
-                                                                                                                                                "@@context": "https://schema.org",
-                                                                                                                                                "@type": "Organization",
+                                                                                                                                                                                    {
+                                                                                                                                                                                        "@@context": "https://schema.org",
+                                                                                                                                                                                        "@type": "Organization",
 
-                                                                                                                                                "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
-                                                                                                                                                "alternateName": "BEM Polbis",
-                                                                                                                                                "url": "{{ url('/') }}",
-                                                                                                                                                "logo": "{{ $seo_logo }}",
-                                                                                                                                                "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
-                                                                                                                                                "parentOrganization": {
-                                                                                                                                                    "@type": "CollegeOrUniversity",
-                                                                                                                                                    "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
-                                                                                                                                                },
-                                                                                                                                                "address": {
-                                                                                                                                                    "@type": "PostalAddress",
-                                                                                                                                                    "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
-                                                                                                                                                    "addressCountry": "ID"
-                                                                                                                                                },
-                                                                                                                                                "email": "{{ $seo_profil['email'] ?? '' }}",
-                                                                                                                                                "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
-                                                                                                                                                "sameAs": [
-                                                                                                                                                    "{{ $seo_profil['instagram'] ?? '' }}",
-                                                                                                                                                    "{{ $seo_profil['youtube'] ?? '' }}",
-                                                                                                                                                    "{{ $seo_profil['tiktok'] ?? '' }}"
-                                                                                                                                                ]
-                                                                                                                                            }
-                                                                                                                                            </script>
+                                                                                                                                                                                        "name": "{{ $seo_profil['nama_bem'] ?? 'BEM Polbis' }}",
+                                                                                                                                                                                        "alternateName": "BEM Polbis",
+                                                                                                                                                                                        "url": "{{ url('/') }}",
+                                                                                                                                                                                        "logo": "{{ $seo_logo }}",
+                                                                                                                                                                                        "description": "Badan Eksekutif Mahasiswa {{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}",
+                                                                                                                                                                                        "parentOrganization": {
+                                                                                                                                                                                            "@type": "CollegeOrUniversity",
+                                                                                                                                                                                            "name": "{{ $seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}"
+                                                                                                                                                                                        },
+                                                                                                                                                                                        "address": {
+                                                                                                                                                                                            "@type": "PostalAddress",
+                                                                                                                                                                                            "streetAddress": "{{ $seo_profil['alamat'] ?? '' }}",
+                                                                                                                                                                                            "addressCountry": "ID"
+                                                                                                                                                                                        },
+                                                                                                                                                                                        "email": "{{ $seo_profil['email'] ?? '' }}",
+                                                                                                                                                                                        "telephone": "{{ $seo_profil['telepon'] ?? '' }}",
+                                                                                                                                                                                        "sameAs": [
+                                                                                                                                                                                            "{{ $seo_profil['instagram'] ?? '' }}",
+                                                                                                                                                                                            "{{ $seo_profil['youtube'] ?? '' }}",
+                                                                                                                                                                                            "{{ $seo_profil['tiktok'] ?? '' }}"
+                                                                                                                                                                                        ]
+                                                                                                                                                                                    }
+                                                                                                                                                                                    </script>
     @endif
 
     {{-- Structured Data: Breadcrumb --}}
@@ -307,12 +307,12 @@
             </div>
             <div
                 class="text-white text-xs border-t border-border/40 py-5 flex flex-col sm:flex-row items-center justify-between gap-2">
-                <p style="text-text-tertiary">
+                <p class="text-text-tertiary text-center sm:text-left">
                     &copy; 2026 Badan Eksekutif Mahasiswa - Politeknik Bisnis Digital
                     Indonesia
                 </p>
-                <p style="text-text-tertiary">
-                    Built with 💙 by HIMA TRPL
+                <p class="text-text-tertiary flex items-center gap-1">
+                    Built with <i data-lucide="heart" class="w-4 h-4"></i> by HIMA TRPL
                 </p>
             </div>
         </div>

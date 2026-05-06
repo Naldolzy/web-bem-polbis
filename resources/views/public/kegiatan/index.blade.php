@@ -37,9 +37,27 @@
                     Semua
                 </a>
                 @foreach($kategori_list as $kat)
+                    @php
+                        $katKey = strtolower($kat);
+                        $katSt  = $kategoriStyles[$katKey] ?? null;
+                        $isActive = request('kategori') === $kat;
+                        if ($isActive && $katSt) {
+                            $btnStyle = "background:linear-gradient(135deg,{$katSt['bg_from']},{$katSt['bg_to']});color:{$katSt['text']};border:none;";
+                            $btnClass = 'px-5 py-2.5 rounded-full text-sm font-semibold transition-all capitalize shadow-sm';
+                        } elseif ($isActive) {
+                            $btnStyle = '';
+                            $btnClass = 'px-5 py-2.5 rounded-full text-sm font-semibold transition-all capitalize shadow-sm bg-gradient-to-r from-blue-700 to-green-600 text-white border-transparent';
+                        } else {
+                            $btnStyle = '';
+                            $btnClass = 'px-5 py-2.5 rounded-full text-sm font-semibold transition-all capitalize shadow-sm bg-white text-slate-600 hover:text-blue-700 hover:bg-slate-50 border border-slate-200';
+                        }
+                    @endphp
                     <a href="{{ route('kegiatan', ['kategori' => $kat]) }}"
-                       class="px-5 py-2.5 rounded-full text-sm font-semibold transition-all capitalize shadow-sm
-                              {{ request('kategori') === $kat ? 'bg-gradient-to-r from-blue-700 to-green-600 text-white border-transparent' : 'bg-white text-slate-600 hover:text-blue-700 hover:bg-slate-50 border border-slate-200' }}">
+                       class="{{ $btnClass }}"
+                       @if($btnStyle) style="{{ $btnStyle }}" @endif>
+                        @if($katSt && !empty($katSt['icon']))
+                            <i data-lucide="{{ $katSt['icon'] }}" class="w-3 h-3 inline-block mr-1" style="vertical-align:middle;"></i>
+                        @endif
                         {{ $kat }}
                     </a>
                 @endforeach
@@ -62,7 +80,7 @@
                                 </div>
                             @endif
                             <div class="absolute top-3 left-3">
-                                <span class="badge-kategori">{{ $item->kategori }}</span>
+                                <x-badge-kategori :kategori="$item->kategori ?? 'umum'" />
                             </div>
                         </div>
                         <div class="p-5">

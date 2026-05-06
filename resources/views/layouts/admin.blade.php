@@ -73,6 +73,12 @@
                         Ormawa
                     </a>
 
+                    <a href="{{ route('admin.kategori-style.index') }}"
+                        class="sidebar-link {{ request()->routeIs('admin.kategori-style*') ? 'active' : '' }}">
+                        <i data-lucide="palette" class="w-5 h-5"></i>
+                        Gaya Kategori
+                    </a>
+
                     {{-- Super Admin Only Menu --}}
                     @if(auth()->user()->isSuperAdmin())
                         <div class="my-4 border-t border-white/06"></div>
@@ -105,20 +111,14 @@
                     </a>
 
                     <a href="{{ route('beranda') }}" target="_blank" class="sidebar-link">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
-                        </svg>
+                        <i data-lucide="external-link" class="w-5 h-5"></i>
                         Lihat Website
                     </a>
 
                     <form method="POST" action="{{ route('admin.logout') }}">
                         @csrf
                         <button type="submit" class="sidebar-link w-full text-left hover:text-red-400">
-                            <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                    d="M17 16l4-4m0 0l-4-4m4 4H7m6 4v1a3 3 0 01-3 3H6a3 3 0 01-3-3V7a3 3 0 013-3h4a3 3 0 013 3v1" />
-                            </svg>
+                            <i data-lucide="log-out" class="w-5 h-5"></i>
                             Logout
                         </button>
                     </form>

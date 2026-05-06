@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\AccountController;
 use App\Http\Controllers\Admin\AuthController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\KegiatanController as AdminKegiatanController;
+use App\Http\Controllers\Admin\KategoriStyleController;
 use App\Http\Controllers\Admin\MisiController;
 use App\Http\Controllers\Admin\OrmawaController;
 use App\Http\Controllers\Admin\ProfilController;
@@ -71,6 +72,10 @@ Route::prefix('bem-admin')->name('admin.')->group(function () {
         // Ganti Password (semua role)
         Route::get('/account/password', [AccountController::class, 'changePassword'])->name('account.change-password');
         Route::put('/account/password', [AccountController::class, 'updatePassword'])->name('account.update-password');
+
+        // Gaya Kategori (semua admin)
+        Route::get('/kategori-style', [KategoriStyleController::class, 'index'])->name('kategori-style.index');
+        Route::post('/kategori-style', [KategoriStyleController::class, 'update'])->name('kategori-style.update');
 
         // Super Admin only routes
         Route::middleware('superadmin')->group(function () {
