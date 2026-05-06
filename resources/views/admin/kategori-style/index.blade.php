@@ -5,13 +5,6 @@
 
 @section('content')
 
-{{-- Alert success --}}
-@if(session('success'))
-    <div class="alert-success mb-6">
-        <i data-lucide="check-circle" class="w-5 h-5 text-green-400 flex-shrink-0"></i>
-        {{ session('success') }}
-    </div>
-@endif
 
 <div class="max-w-4xl">
     {{-- Header card --}}
