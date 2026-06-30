@@ -22,7 +22,7 @@
 @push('head_scripts')
 <script type="application/ld+json">
 {
-    "@context": "https://schema.org",
+    "@@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ addslashes($kegiatan->judul) }}",
     "description": "{{ addslashes(Str::limit(strip_tags($kegiatan->deskripsi ?? ''), 155)) }}",

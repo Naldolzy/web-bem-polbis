@@ -48,25 +48,15 @@ class PublicController extends Controller
 
     public function kegiatanDetail(string $slug)
     {
-        try {
-            $profil   = ProfilBem::getAllAsArray();
-            $kegiatan = Kegiatan::published()->where('slug', $slug)->firstOrFail();
-            $related  = Kegiatan::published()
-                ->where('id', '!=', $kegiatan->id)
-                ->orderBy('tanggal_kegiatan', 'desc')
-                ->limit(3)
-                ->get();
+        $profil   = ProfilBem::getAllAsArray();
+        $kegiatan = Kegiatan::published()->where('slug', $slug)->firstOrFail();
+        $related  = Kegiatan::published()
+            ->where('id', '!=', $kegiatan->id)
+            ->orderBy('tanggal_kegiatan', 'desc')
+            ->limit(3)
+            ->get();
 
-            // Call ->render() to force Blade compilation inside the try-catch
-            return response(view('public.kegiatan.show', compact('profil', 'kegiatan', 'related'))->render());
-        } catch (\Throwable $e) {
-            dd([
-                'error_message' => $e->getMessage(),
-                'file' => $e->getFile(),
-                'line' => $e->getLine(),
-                'trace' => $e->getTraceAsString()
-            ]);
-        }
+        return view('public.kegiatan.show', compact('profil', 'kegiatan', 'related'));
     }
 
     public function struktur()
