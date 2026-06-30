@@ -79,10 +79,10 @@
 
         {{-- Featured Image --}}
         @if($kegiatan->foto)
-            <div class="rounded-3xl overflow-hidden mb-10 shadow-xl shadow-blue-900/5 ring-1 ring-slate-100" style="max-height: 500px;">
+            <div class="rounded-3xl overflow-hidden mb-10 shadow-xl shadow-blue-900/5 ring-1 ring-slate-100">
                 <img src="{{ Storage::url($kegiatan->foto) }}"
                      alt="Foto kegiatan {{ $kegiatan->judul }} - BEM Polbis"
-                     class="w-full h-full object-cover"
+                     class="w-full h-auto"
                      loading="lazy">
             </div>
         @endif

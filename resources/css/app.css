@@ -372,8 +372,8 @@ input[type="checkbox"].custom-check:hover {
 }
 
 /* Quill list classes rendered on public page */
-.prose ol[data-list="ordered"] { list-style-type: decimal; padding-left: 1.75rem; }
-.prose ol[data-list="bullet"]  { list-style-type: disc;    padding-left: 1.75rem; }
+.prose ol:has(li[data-list="ordered"]) { list-style-type: decimal; padding-left: 1.75rem; }
+.prose ol:has(li[data-list="bullet"])  { list-style-type: disc;    padding-left: 1.75rem; }
 .prose li[data-list="ordered"] { display: list-item; }
 .prose li[data-list="bullet"]  { display: list-item; }
 
