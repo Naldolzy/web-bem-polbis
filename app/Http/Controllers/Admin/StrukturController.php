@@ -35,7 +35,7 @@ class StrukturController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('struktur', 'public');
+            $validated['foto'] = $request->file('foto')->store('struktur');
         }
 
         $validated['is_active'] = $request->boolean('is_active');
@@ -66,9 +66,9 @@ class StrukturController extends Controller
 
         if ($request->hasFile('foto')) {
             if ($struktur->foto) {
-                Storage::disk('public')->delete($struktur->foto);
+                Storage::delete($struktur->foto);
             }
-            $validated['foto'] = $request->file('foto')->store('struktur', 'public');
+            $validated['foto'] = $request->file('foto')->store('struktur');
         }
 
         $validated['is_active'] = $request->boolean('is_active');
@@ -83,7 +83,7 @@ class StrukturController extends Controller
     public function destroy(Struktur $struktur): RedirectResponse
     {
         if ($struktur->foto) {
-            Storage::disk('public')->delete($struktur->foto);
+            Storage::delete($struktur->foto);
         }
         $struktur->delete();
 
@@ -94,7 +94,7 @@ class StrukturController extends Controller
     public function hapusFoto(Struktur $struktur): RedirectResponse
     {
         if ($struktur->foto) {
-            Storage::disk('public')->delete($struktur->foto);
+            Storage::delete($struktur->foto);
             $struktur->update(['foto' => null]);
         }
         return back()->with('success', 'Foto anggota berhasil dihapus.');

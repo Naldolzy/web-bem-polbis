@@ -34,7 +34,7 @@ class OrmawaController extends Controller
         ]);
 
         if ($request->hasFile('logo')) {
-            $validated['logo'] = $request->file('logo')->store('ormawa', 'public');
+            $validated['logo'] = $request->file('logo')->store('ormawa');
         }
 
         $validated['urutan']    = $validated['urutan'] ?? 0;
@@ -49,7 +49,7 @@ class OrmawaController extends Controller
     public function destroy(Ormawa $ormawa)
     {
         if ($ormawa->logo) {
-            Storage::disk('public')->delete($ormawa->logo);
+            Storage::delete($ormawa->logo);
         }
         $ormawa->delete();
 

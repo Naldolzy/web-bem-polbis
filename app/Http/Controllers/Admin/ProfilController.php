@@ -40,22 +40,22 @@ class ProfilController extends Controller
         // Handle logo BEM upload
         if ($request->hasFile('logo_bem')) {
             $old = ProfilBem::getValue('logo_bem');
-            if ($old) Storage::disk('public')->delete($old);
-            ProfilBem::set('logo_bem', $request->file('logo_bem')->store('profil', 'public'));
+            if ($old) Storage::delete($old);
+            ProfilBem::set('logo_bem', $request->file('logo_bem')->store('profil'));
         }
 
         // Handle logo kampus upload
         if ($request->hasFile('logo_kampus')) {
             $old = ProfilBem::getValue('logo_kampus');
-            if ($old) Storage::disk('public')->delete($old);
-            ProfilBem::set('logo_kampus', $request->file('logo_kampus')->store('profil', 'public'));
+            if ($old) Storage::delete($old);
+            ProfilBem::set('logo_kampus', $request->file('logo_kampus')->store('profil'));
         }
 
         // Handle foto ketua upload
         if ($request->hasFile('foto_ketua')) {
             $old = ProfilBem::getValue('foto_ketua');
-            if ($old) Storage::disk('public')->delete($old);
-            ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil', 'public'));
+            if ($old) Storage::delete($old);
+            ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil'));
         }
 
         return back()->with('success', 'Profil BEM berhasil diperbarui!');
@@ -70,7 +70,7 @@ class ProfilController extends Controller
 
         $path = ProfilBem::getValue($key);
         if ($path) {
-            Storage::disk('public')->delete($path);
+            Storage::delete($path);
         }
         ProfilBem::set($key, '');
 

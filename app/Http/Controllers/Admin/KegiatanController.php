@@ -36,7 +36,7 @@ class KegiatanController extends Controller
         ]);
 
         if ($request->hasFile('foto')) {
-            $validated['foto'] = $request->file('foto')->store('kegiatan', 'public');
+            $validated['foto'] = $request->file('foto')->store('kegiatan');
         }
 
         $validated['slug'] = Str::slug($validated['judul']) . '-' . time();
@@ -67,9 +67,9 @@ class KegiatanController extends Controller
 
         if ($request->hasFile('foto')) {
             if ($kegiatan->foto) {
-                Storage::disk('public')->delete($kegiatan->foto);
+                Storage::delete($kegiatan->foto);
             }
-            $validated['foto'] = $request->file('foto')->store('kegiatan', 'public');
+            $validated['foto'] = $request->file('foto')->store('kegiatan');
         }
 
         $validated['is_published'] = $request->boolean('is_published');
@@ -83,7 +83,7 @@ class KegiatanController extends Controller
     public function destroy(Kegiatan $kegiatan): RedirectResponse
     {
         if ($kegiatan->foto) {
-            Storage::disk('public')->delete($kegiatan->foto);
+            Storage::delete($kegiatan->foto);
         }
         $kegiatan->delete();
 
@@ -94,7 +94,7 @@ class KegiatanController extends Controller
     public function hapusFoto(Kegiatan $kegiatan): RedirectResponse
     {
         if ($kegiatan->foto) {
-            Storage::disk('public')->delete($kegiatan->foto);
+            Storage::delete($kegiatan->foto);
             $kegiatan->update(['foto' => null]);
         }
         return back()->with('success', 'Foto kegiatan berhasil dihapus.');
