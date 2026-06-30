@@ -45,7 +45,7 @@
                         @foreach($anggota as $org)
                             <div class="struktur-card" style="width: 170px; flex-shrink: 0;">
                                 @if($org->foto)
-                                    <img src="{{ asset('storage/'.$org->foto) }}" alt="{{ $org->nama }}" class="avatar">
+                                    <img src="{{ Storage::url($org->foto) }}" alt="{{ $org->nama }}" class="avatar">
                                 @else
                                     <div class="w-20 h-20 rounded-full bg-gradient-to-br from-blue-600 to-blue-700 flex items-center justify-center mx-auto mb-3"
                                          style="border: 3px solid rgba(245,158,11,0.35);">

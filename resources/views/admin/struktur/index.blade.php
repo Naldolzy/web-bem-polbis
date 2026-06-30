@@ -41,7 +41,7 @@
                                     <div class="flex items-center gap-3">
                                         <div class="w-10 h-10 rounded-full overflow-hidden flex-shrink-0">
                                             @if($org->foto)
-                                                <img src="{{ asset('storage/'.$org->foto) }}" class="w-full h-full object-cover" alt="">
+                                                <img src="{{ Storage::url($org->foto) }}" class="w-full h-full object-cover" alt="">
                                             @else
                                                 <div class="w-full h-full bg-blue-700 flex items-center justify-center">
                                                     <span class="text-lime-500 font-bold text-sm">{{ strtoupper(substr($org->nama, 0, 1)) }}</span>

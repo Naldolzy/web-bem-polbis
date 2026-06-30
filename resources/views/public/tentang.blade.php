@@ -34,7 +34,7 @@
                     <div class="w-64 h-64 rounded-full bg-gradient-to-br from-lime-500/20 to-indigo-500/20 blur-2xl absolute inset-0 m-auto"></div>
                     <div class="relative card-glass p-10 rounded-3xl text-center w-72">
                         @if(!empty($profil['foto_ketua']))
-                            <img src="{{ asset('storage/'.$profil['foto_ketua']) }}"
+                            <img src="{{ Storage::url($profil['foto_ketua']) }}"
                                  alt="{{ $profil['ketua_bem'] ?? 'Ketua BEM' }}"
                                  class="w-24 h-24 rounded-full object-cover mx-auto mb-4 border-4 border-lime-500/50">
                         @else

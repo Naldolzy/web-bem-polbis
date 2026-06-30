@@ -67,7 +67,7 @@
                 @if($kegiatan->foto)
                     <div class="mb-3 flex items-center justify-between gap-3 p-3 rounded-lg bg-white/03 border border-white/08">
                         <div class="flex items-center gap-3">
-                            <img src="{{ asset('storage/'.$kegiatan->foto) }}" class="w-16 h-16 rounded-lg object-cover" alt="">
+                            <img src="{{ Storage::url($kegiatan->foto) }}" class="w-16 h-16 rounded-lg object-cover" alt="">
                             <div>
                                 <p class="text-white text-sm font-medium">Foto saat ini</p>
                                 <p class="text-blue-500 text-xs">Drop atau klik di bawah untuk mengganti</p>

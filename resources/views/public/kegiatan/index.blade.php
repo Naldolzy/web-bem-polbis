@@ -70,7 +70,7 @@
                     <article class="card-kegiatan reveal">
                         <div class="relative overflow-hidden" style="height: 210px;">
                             @if($item->foto)
-                                <img src="{{ asset('storage/'.$item->foto) }}" alt="{{ $item->judul }}"
+                                <img src="{{ Storage::url($item->foto) }}" alt="{{ $item->judul }}"
                                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
                             @else
                                 <div class="w-full h-full bg-gradient-to-br from-blue-700 to-blue-800 flex items-center justify-center">

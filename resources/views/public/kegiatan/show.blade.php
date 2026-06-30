@@ -3,7 +3,7 @@
 @section('title', $kegiatan->judul)
 @section('meta_description', Str::limit(strip_tags($kegiatan->deskripsi), 155))
 @if($kegiatan->foto)
-@section('og_image', asset('storage/'.$kegiatan->foto))
+@section('og_image', Storage::url($kegiatan->foto))
 @endif
 
 @section('breadcrumb_json')
@@ -27,7 +27,7 @@
     "headline": "{{ addslashes($kegiatan->judul) }}",
     "description": "{{ addslashes(Str::limit(strip_tags($kegiatan->deskripsi), 155)) }}",
     @if($kegiatan->foto)
-    "image": ["{{ asset('storage/'.$kegiatan->foto) }}"],
+    "image": ["{{ Storage::url($kegiatan->foto) }}"],
     @endif
     "datePublished": "{{ $kegiatan->tanggal_kegiatan->toIso8601String() }}",
     "dateModified": "{{ $kegiatan->updated_at->toIso8601String() }}",
@@ -80,7 +80,7 @@
         {{-- Featured Image --}}
         @if($kegiatan->foto)
             <div class="rounded-3xl overflow-hidden mb-10 shadow-xl shadow-blue-900/5 ring-1 ring-slate-100" style="max-height: 500px;">
-                <img src="{{ asset('storage/'.$kegiatan->foto) }}"
+                <img src="{{ Storage::url($kegiatan->foto) }}"
                      alt="Foto kegiatan {{ $kegiatan->judul }} - BEM Polbis"
                      class="w-full h-full object-cover"
                      loading="lazy">
@@ -121,7 +121,7 @@
                     <article class="card-kegiatan">
                         <div class="relative overflow-hidden" style="height: 160px;">
                             @if($item->foto)
-                                <img src="{{ asset('storage/'.$item->foto) }}" alt="{{ $item->judul }}" class="w-full h-full object-cover">
+                                <img src="{{ Storage::url($item->foto) }}" alt="{{ $item->judul }}" class="w-full h-full object-cover">
                             @else
                                 <div class="w-full h-full bg-blue-100 flex items-center justify-center">
                                     <svg class="w-10 h-10 text-blue-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -36,7 +36,7 @@
                     @if(!empty($profil['logo_bem']))
                         <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                             <div class="flex items-center gap-3">
-                                <img src="{{ asset('storage/'.$profil['logo_bem']) }}" class="h-12 w-12 object-contain rounded" alt="Logo BEM">
+                                <img src="{{ Storage::url($profil['logo_bem']) }}" class="h-12 w-12 object-contain rounded" alt="Logo BEM">
                                 <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_bem" onclick="return confirm('Hapus logo BEM?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
@@ -63,7 +63,7 @@
                     @if(!empty($profil['logo_kampus']))
                         <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                             <div class="flex items-center gap-3">
-                                <img src="{{ asset('storage/'.$profil['logo_kampus']) }}" class="h-12 w-12 object-contain rounded" alt="Logo Kampus">
+                                <img src="{{ Storage::url($profil['logo_kampus']) }}" class="h-12 w-12 object-contain rounded" alt="Logo Kampus">
                                 <span class="text-blue-400 text-xs">Logo saat ini</span>
                             </div>
                             <button type="submit" form="form-delete-logo_kampus" onclick="return confirm('Hapus logo kampus?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">
@@ -119,7 +119,7 @@
                 @if(!empty($profil['foto_ketua']))
                     <div class="mb-3 p-3 rounded-lg bg-white/03 border border-white/08 flex items-center justify-between gap-3">
                         <div class="flex items-center gap-3">
-                            <img src="{{ asset('storage/'.$profil['foto_ketua']) }}" class="h-14 w-14 rounded-full object-cover border-2 border-lime-500/30" alt="Foto Ketua">
+                            <img src="{{ Storage::url($profil['foto_ketua']) }}" class="h-14 w-14 rounded-full object-cover border-2 border-lime-500/30" alt="Foto Ketua">
                             <span class="text-blue-400 text-xs">Foto ketua saat ini</span>
                         </div>
                         <button type="submit" form="form-delete-foto_ketua" onclick="return confirm('Hapus foto ketua?')" class="px-3 py-1.5 rounded-lg bg-red-500/20 text-red-400 text-xs font-semibold hover:bg-red-500/30 transition-colors flex items-center gap-1">

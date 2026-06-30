@@ -25,7 +25,7 @@
                 @php $logo_bem_admin = \App\Models\ProfilBem::getValue('logo_bem'); @endphp
                 <div class="flex items-center gap-3 mb-8">
                     @if($logo_bem_admin)
-                        <img src="{{ asset('storage/' . $logo_bem_admin) }}" alt="Logo BEM"
+                        <img src="{{ Storage::url($logo_bem_admin) }}" alt="Logo BEM"
                             class="w-10 h-10 rounded-xl object-contain bg-white/05 p-0.5">
                     @else
                         <div

@@ -26,7 +26,7 @@
             <div class="card-glass rounded-2xl p-5 flex items-start gap-4 group">
                 <!-- Logo -->
                 @if($o->logo)
-                    <img src="{{ asset('storage/'.$o->logo) }}" alt="{{ $o->nama }}"
+                    <img src="{{ Storage::url($o->logo) }}" alt="{{ $o->nama }}"
                          class="w-14 h-14 rounded-xl object-contain bg-white/05 p-1 flex-shrink-0">
                 @else
                     <div class="w-14 h-14 rounded-xl bg-lime-500/15 flex items-center justify-center flex-shrink-0">

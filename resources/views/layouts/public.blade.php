@@ -9,8 +9,8 @@
         $seo_profil = \App\Models\ProfilBem::getAllAsArray();
         $seo_url = url()->current();
         $seo_site_name = ($seo_profil['nama_bem'] ?? 'BEM Polbis') . ' ' . ($seo_profil['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia');
-        $seo_logo = !empty($seo_profil['logo_bem']) ? asset('storage/' . $seo_profil['logo_bem']) : asset('favicon.ico');
-        $seo_og_image = !empty($seo_profil['logo_bem']) ? asset('storage/' . $seo_profil['logo_bem']) : $seo_logo;
+        $seo_logo = !empty($seo_profil['logo_bem']) ? Storage::url($seo_profil['logo_bem']) : asset('favicon.ico');
+        $seo_og_image = !empty($seo_profil['logo_bem']) ? Storage::url($seo_profil['logo_bem']) : $seo_logo;
     @endphp
 
     {{-- Primary Meta --}}
@@ -150,7 +150,7 @@
                 <!-- Logo -->
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
                     @if(!empty($profil_layout['logo_bem']))
-                        <img src="{{ asset('storage/' . $profil_layout['logo_bem']) }}" alt="Logo BEM"
+                        <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
                             class="h-10 w-10 object-contain rounded-xl">
                     @else
                         <div
@@ -268,7 +268,7 @@
                 <!-- Kiri: BEM -->
                 <div class="flex items-center gap-4">
                     @if(!empty($profil_layout['logo_bem']))
-                        <img src="{{ asset('storage/' . $profil_layout['logo_bem']) }}" alt="Logo BEM"
+                        <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
                             class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
                     @else
                         <div
@@ -309,7 +309,7 @@
                             @endif
                         </div>
                         @if(!empty($profil_layout['logo_kampus']))
-                            <img src="{{ asset('storage/' . $profil_layout['logo_kampus']) }}" alt="Logo Kampus"
+                            <img src="{{ Storage::url($profil_layout['logo_kampus']) }}" alt="Logo Kampus"
                                 class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
                         @else
                             <div

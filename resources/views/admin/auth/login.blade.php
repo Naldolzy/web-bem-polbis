@@ -25,7 +25,7 @@
             <div class="text-center mb-8">
                 <div class="mx-auto mb-4 flex justify-center">
                     @if(!empty($logo_bem))
-                        <img src="{{ asset('storage/' . $logo_bem) }}" alt="Logo BEM"
+                        <img src="{{ Storage::url($logo_bem) }}" alt="Logo BEM"
                             class="w-20 h-20 object-contain drop-shadow-xl">
                     @else
                         <div

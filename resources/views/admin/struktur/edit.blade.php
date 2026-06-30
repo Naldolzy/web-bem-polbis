@@ -54,7 +54,7 @@
                 @if($struktur->foto)
                     <div class="mb-3 flex items-center justify-between gap-3 p-3 rounded-lg bg-white/03 border border-white/08">
                         <div class="flex items-center gap-3">
-                            <img src="{{ asset('storage/'.$struktur->foto) }}" class="w-14 h-14 rounded-full object-cover" alt="">
+                            <img src="{{ Storage::url($struktur->foto) }}" class="w-14 h-14 rounded-full object-cover" alt="">
                             <div>
                                 <p class="text-white text-sm font-medium">Foto saat ini</p>
                                 <p class="text-blue-500 text-xs">Drop atau klik di bawah untuk mengganti</p>

@@ -75,7 +75,7 @@
                     <div class="w-80 h-80 rounded-full bg-gradient-to-br from-lime-500/20 to-indigo-500/20 blur-3xl absolute inset-0"></div>
                     <div class="relative card-glass p-10 rounded-3xl text-center">
                         @if(!empty($profil['logo_bem']))
-                            <img src="{{ asset('storage/'.$profil['logo_bem']) }}"
+                            <img src="{{ Storage::url($profil['logo_bem']) }}"
                                  alt="Logo BEM Polbis"
                                  class="w-40 h-40 object-contain mx-auto mb-4">
                         @else
@@ -121,7 +121,7 @@
                     <article class="card-kegiatan reveal">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             @if($item->foto)
-                                <img src="{{ asset('storage/'.$item->foto) }}"
+                                <img src="{{ Storage::url($item->foto) }}"
                                      alt="Foto kegiatan {{ $item->judul }} - BEM Polbis"
                                      class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
                                      loading="lazy">

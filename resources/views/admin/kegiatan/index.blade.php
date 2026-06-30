@@ -33,7 +33,7 @@
                         <div class="flex items-center gap-3">
                             <div class="w-12 h-12 rounded-lg overflow-hidden flex-shrink-0">
                                 @if($item->foto)
-                                    <img src="{{ asset('storage/'.$item->foto) }}" class="w-full h-full object-cover" alt="">
+                                    <img src="{{ Storage::url($item->foto) }}" class="w-full h-full object-cover" alt="">
                                 @else
                                     <div class="w-full h-full bg-blue-700 flex items-center justify-center">
                                         <i data-lucide="image" class="w-5 h-5 text-blue-500"></i>

@@ -52,7 +52,7 @@
         <priority>0.7</priority>
         @if($item->foto)
         <image:image>
-            <image:loc>{{ asset('storage/' . $item->foto) }}</image:loc>
+            <image:loc>{{ Storage::url($item->foto) }}</image:loc>
         </image:image>
         @endif
     </url>

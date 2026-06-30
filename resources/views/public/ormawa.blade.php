@@ -46,7 +46,7 @@
 
                         <!-- Logo -->
                         @if($o->logo)
-                            <img src="{{ asset('storage/'.$o->logo) }}" alt="{{ $o->nama }}"
+                            <img src="{{ Storage::url($o->logo) }}" alt="{{ $o->nama }}"
                                  class="w-20 h-20 rounded-2xl object-contain bg-slate-50 p-2 group-hover:scale-105 transition-transform duration-300">
                         @else
                             <div class="w-20 h-20 rounded-2xl bg-gradient-to-br from-lime-500/20 to-lime-600/10 border border-lime-500/20 flex items-center justify-center group-hover:from-lime-500/30 transition-all duration-300">
