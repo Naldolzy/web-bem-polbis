@@ -15,7 +15,7 @@ server.log
 /.zed
 /auth.json
 /node_modules
-/public/build
+# /public/build — sengaja dibuka agar front-end assets bisa langsung di-deploy tanpa build ulang di Vercel
 /public/hot
 # /public/storage — sengaja dibuka agar public/storage/.gitkeep bisa di-commit untuk Vercel
 /storage/*.key
