@@ -151,7 +151,7 @@
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
                     @if(!empty($profil_layout['logo_bem']))
                         <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-10 w-auto max-w-[120px] object-contain rounded-lg">
+                            class="h-14 w-auto max-w-[160px] object-contain rounded-lg">
                     @else
                         <div
                             class="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center shadow-lg">
@@ -162,7 +162,7 @@
                         <div class="text-white font-bold text-sm leading-tight">
                             {{ $profil_layout['nama_bem'] ?? 'BEM Polbis' }}
                         </div>
-                        <div class="text-lime-500 text-xs leading-tight">
+                        <div class="text-lime-400 font-medium text-xs leading-tight">
                             {{ $profil_layout['nama_kampus'] ?? 'Politeknik Bisnis Digital Indonesia' }}
                         </div>
                     </div>
@@ -269,7 +269,7 @@
                 <div class="flex items-center gap-4">
                     @if(!empty($profil_layout['logo_bem']))
                         <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
+                            class="h-16 w-16 object-contain rounded-full bg-white p-1 flex-shrink-0 shadow-lg">
                     @else
                         <div
                             class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -310,7 +310,7 @@
                         </div>
                         @if(!empty($profil_layout['logo_kampus']))
                             <img src="{{ Storage::url($profil_layout['logo_kampus']) }}" alt="Logo Kampus"
-                                class="h-12 w-12 object-contain rounded-full bg-white p-1.5 flex-shrink-0 shadow-lg">
+                                class="h-16 w-16 object-contain rounded-full bg-white p-1 flex-shrink-0 shadow-lg">
                         @else
                             <div
                                 class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-lg">
