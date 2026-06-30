@@ -13,7 +13,7 @@ class UserController extends Controller
     public function index()
     {
         // Superadmin cannot delete themselves, show all except current user at bottom
-        $users = User::orderByRaw("FIELD(role, 'superadmin', 'admin')")->orderBy('name')->get();
+        $users = User::orderByRaw("CASE WHEN role = 'superadmin' THEN 1 WHEN role = 'admin' THEN 2 ELSE 3 END")->orderBy('name')->get();
         return view('admin.users.index', compact('users'));
     }
 
