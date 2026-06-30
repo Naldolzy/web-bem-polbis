@@ -373,11 +373,34 @@ input[type="checkbox"].custom-check:hover {
 
 /* Quill list classes rendered on public page */
 .prose ol:has(li[data-list="ordered"]) { list-style-type: decimal !important; padding-left: 1.75rem; }
-.prose ol:has(li[data-list="bullet"])  { list-style-type: disc !important;    padding-left: 1.75rem; }
+.prose ol:has(li[data-list="bullet"])  { list-style-type: none !important; padding-left: 1.75rem; }
+
+.prose li[data-list="ordered"] { list-style-type: decimal !important; display: list-item; margin-left: 1rem; }
 .prose li[data-list="ordered"]::marker { content: counter(list-item) ". " !important; }
-.prose li[data-list="bullet"]::marker  { content: "• " !important; font-size: 1.2em; }
-.prose li[data-list="ordered"] { display: list-item; margin-left: 1rem; }
-.prose li[data-list="bullet"]  { display: list-item; margin-left: 1rem; }
+
+.prose li[data-list="bullet"] {
+    list-style: none !important;
+    position: relative;
+    margin-left: 1rem;
+}
+.prose li[data-list="bullet"]::marker {
+    content: "" !important;
+    display: none !important;
+}
+.prose li[data-list="bullet"]::before {
+    content: "•" !important;
+    position: absolute;
+    left: -1.2rem;
+    top: 0;
+    color: currentColor;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+/* Quill Alignment Classes */
+.prose .ql-align-center { text-align: center !important; }
+.prose .ql-align-right { text-align: right !important; }
+.prose .ql-align-justify { text-align: justify !important; }
 
 /* ===========================
    NAVBAR
