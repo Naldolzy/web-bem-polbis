@@ -5,7 +5,7 @@ use Illuminate\Foundation\Application;
 use Illuminate\Foundation\Configuration\Exceptions;
 use Illuminate\Foundation\Configuration\Middleware;
 
-return Application::configure(basePath: dirname(__DIR__))
+$app = Application::configure(basePath: dirname(__DIR__))
     ->withRouting(
         web: __DIR__.'/../routes/web.php',
         commands: __DIR__.'/../routes/console.php',
@@ -21,4 +21,19 @@ return Application::configure(basePath: dirname(__DIR__))
     ->withExceptions(function (Exceptions $exceptions): void {
         //
     })->create();
+
+if (isset($_ENV['VERCEL']) || isset($_ENV['VERCEL_URL'])) {
+    $tmpStorage = '/tmp/storage';
+    if (!is_dir($tmpStorage)) {
+        mkdir($tmpStorage, 0777, true);
+        mkdir($tmpStorage . '/framework/cache', 0777, true);
+        mkdir($tmpStorage . '/framework/views', 0777, true);
+        mkdir($tmpStorage . '/framework/sessions', 0777, true);
+        mkdir($tmpStorage . '/logs', 0777, true);
+    }
+    $app->useStoragePath($tmpStorage);
+    putenv('LOG_CHANNEL=stderr');
+}
+
+return $app;
 
