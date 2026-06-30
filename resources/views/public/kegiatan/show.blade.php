@@ -1,7 +1,7 @@
 @extends('layouts.public')
 
 @section('title', $kegiatan->judul)
-@section('meta_description', Str::limit(strip_tags($kegiatan->deskripsi), 155))
+@section('meta_description', Str::limit(strip_tags($kegiatan->deskripsi ?? ''), 155))
 @if($kegiatan->foto)
 @section('og_image', Storage::url($kegiatan->foto))
 @endif
@@ -25,12 +25,12 @@
     "@context": "https://schema.org",
     "@type": "Article",
     "headline": "{{ addslashes($kegiatan->judul) }}",
-    "description": "{{ addslashes(Str::limit(strip_tags($kegiatan->deskripsi), 155)) }}",
+    "description": "{{ addslashes(Str::limit(strip_tags($kegiatan->deskripsi ?? ''), 155)) }}",
     @if($kegiatan->foto)
     "image": ["{{ Storage::url($kegiatan->foto) }}"],
     @endif
-    "datePublished": "{{ $kegiatan->tanggal_kegiatan->toIso8601String() }}",
-    "dateModified": "{{ $kegiatan->updated_at->toIso8601String() }}",
+    "datePublished": "{{ $kegiatan->tanggal_kegiatan?->toIso8601String() ?? now()->toIso8601String() }}",
+    "dateModified": "{{ $kegiatan->updated_at?->toIso8601String() ?? ($kegiatan->tanggal_kegiatan?->toIso8601String() ?? now()->toIso8601String()) }}",
     "author": {
         "@type": "Organization",
         "name": "BEM Politeknik Bisnis Digital Indonesia",
@@ -71,7 +71,7 @@
         <!-- Badge -->
         <div class="flex items-center gap-3 mb-4">
             <x-badge-kategori :kategori="$kegiatan->kategori ?? 'umum'" />
-            <span class="text-blue-500 text-sm">{{ $kegiatan->tanggal_kegiatan->format('d F Y') }}</span>
+            <span class="text-blue-500 text-sm">{{ $kegiatan->tanggal_kegiatan?->format('d F Y') }}</span>
         </div>
 
         <!-- Title -->
@@ -131,7 +131,7 @@
                             @endif
                         </div>
                         <div class="p-5">
-                            <div class="text-slate-500 text-xs font-medium mb-2">{{ $item->tanggal_kegiatan->format('d F Y') }}</div>
+                            <div class="text-slate-500 text-xs font-medium mb-2">{{ $item->tanggal_kegiatan?->format('d F Y') }}</div>
                             <h4 class="text-slate-800 font-bold text-base line-clamp-2 mb-3">{{ $item->judul }}</h4>
                             <a href="{{ route('kegiatan.show', $item->slug) }}" class="text-blue-600 text-sm font-semibold hover:text-blue-700 transition-colors flex items-center gap-1">
                                 Baca <span aria-hidden="true">&rarr;</span>
