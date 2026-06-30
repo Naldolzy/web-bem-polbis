@@ -197,6 +197,28 @@
         }
         // Init Lucide Icons
         lucide.createIcons();
+
+        // Global File Size Validation (Vercel 4.5MB Payload Limit)
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                const fileInputs = form.querySelectorAll('input[type="file"]');
+                let totalSize = 0;
+                
+                fileInputs.forEach(input => {
+                    if (input.files && input.files.length > 0) {
+                        for (let i = 0; i < input.files.length; i++) {
+                            totalSize += input.files[i].size;
+                        }
+                    }
+                });
+
+                // 4.3 MB limit untuk ngasih ruang ke text/form data lain
+                if (totalSize > 4300000) {
+                    e.preventDefault();
+                    alert('⚠️ GAGAL UPLOAD: Ukuran gambar terlalu besar!\n\nBatas maksimal total ukuran gambar adalah 4.3 MB (karena limit Vercel). Silakan kompres gambar Anda terlebih dahulu menggunakan web seperti tinypng.com atau iloveimg.com.');
+                }
+            });
+        });
     </script>
     @stack('scripts')
 </body>
