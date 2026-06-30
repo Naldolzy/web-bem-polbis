@@ -26,13 +26,20 @@ if (isset($_ENV['VERCEL']) || isset($_ENV['VERCEL_URL'])) {
     $tmpStorage = '/tmp/storage';
     if (!is_dir($tmpStorage)) {
         mkdir($tmpStorage, 0777, true);
-        mkdir($tmpStorage . '/framework/cache', 0777, true);
+        mkdir($tmpStorage . '/framework/cache/data', 0777, true);
         mkdir($tmpStorage . '/framework/views', 0777, true);
         mkdir($tmpStorage . '/framework/sessions', 0777, true);
         mkdir($tmpStorage . '/logs', 0777, true);
     }
     $app->useStoragePath($tmpStorage);
     putenv('LOG_CHANNEL=stderr');
+    
+    // Pindahkan semua file cache Laravel ke /tmp (Vercel Read-Only Filesystem Fix)
+    putenv('APP_SERVICES_CACHE=' . $tmpStorage . '/framework/cache/services.php');
+    putenv('APP_PACKAGES_CACHE=' . $tmpStorage . '/framework/cache/packages.php');
+    putenv('APP_CONFIG_CACHE=' . $tmpStorage . '/framework/cache/config.php');
+    putenv('APP_ROUTES_CACHE=' . $tmpStorage . '/framework/cache/routes.php');
+    putenv('APP_EVENTS_CACHE=' . $tmpStorage . '/framework/cache/events.php');
 }
 
 return $app;
