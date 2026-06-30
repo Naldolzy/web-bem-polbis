@@ -374,8 +374,10 @@ input[type="checkbox"].custom-check:hover {
 /* Quill list classes rendered on public page */
 .prose ol:has(li[data-list="ordered"]) { list-style-type: decimal !important; padding-left: 1.75rem; }
 .prose ol:has(li[data-list="bullet"])  { list-style-type: disc !important;    padding-left: 1.75rem; }
-.prose li[data-list="ordered"] { list-style-type: decimal !important; display: list-item; margin-left: 1rem; }
-.prose li[data-list="bullet"]  { list-style-type: disc !important; display: list-item; margin-left: 1rem; }
+.prose li[data-list="ordered"]::marker { content: counter(list-item) ". " !important; }
+.prose li[data-list="bullet"]::marker  { content: "• " !important; font-size: 1.2em; }
+.prose li[data-list="ordered"] { display: list-item; margin-left: 1rem; }
+.prose li[data-list="bullet"]  { display: list-item; margin-left: 1rem; }
 
 /* ===========================
    NAVBAR
