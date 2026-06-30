@@ -23,6 +23,14 @@
     <meta name="robots" content="index, follow, max-snippet:-1, max-image-preview:large, max-video-preview:-1">
     <link rel="canonical" href="{{ $seo_url }}">
 
+    {{-- PWA / Mobile Browser --}}
+    <meta name="theme-color" content="#1565C0">
+    <meta name="mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="apple-mobile-web-app-title" content="BEM Polbis">
+
+
     {{-- Favicon & App Icons --}}
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('favicon.png') }}">
     <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('favicon.png') }}">
@@ -86,8 +94,13 @@
     @endif
 
     @vite(['resources/css/app.css', 'resources/js/app.js'])
-    {{-- Lucide Icons --}}
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+
+    {{-- Preconnect untuk CDN (speed optimization) --}}
+    <link rel="preconnect" href="https://unpkg.com">
+    <link rel="dns-prefetch" href="https://unpkg.com">
+    {{-- Lucide Icons — versi dikunci agar tidak ada breaking changes --}}
+    <script src="https://unpkg.com/lucide@0.511.0/dist/umd/lucide.min.js" defer></script>
+
     <style>
         #preloader {
             position: fixed;
@@ -115,6 +128,8 @@
             }
         }
     </style>
+    {{-- Slot untuk structured data tambahan dari child views (Article, Event, dll) --}}
+    @stack('head_scripts')
 </head>
 
 <body class="antialiased">

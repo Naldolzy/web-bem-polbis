@@ -1,0 +1,55 @@
+{
+    "version": 2,
+    "framework": null,
+
+    "installCommand": "composer install --no-dev --optimize-autoloader --no-interaction && npm ci",
+    "buildCommand": "npm run build",
+
+    "functions": {
+        "api/index.php": {
+            "runtime": "vercel-php@0.7.2",
+            "maxDuration": 30
+        }
+    },
+
+    "routes": [
+        {
+            "src": "/build/(.*)",
+            "headers": {
+                "Cache-Control": "public, max-age=31536000, immutable"
+            },
+            "dest": "/public/build/$1"
+        },
+        {
+            "src": "/favicon\\.ico",
+            "dest": "/public/favicon.ico"
+        },
+        {
+            "src": "/favicon\\.png",
+            "dest": "/public/favicon.png"
+        },
+        {
+            "src": "/logo-bem\\.png",
+            "dest": "/public/logo-bem.png"
+        },
+        {
+            "src": "/google(.*)\\.html",
+            "dest": "/public/google$1.html"
+        },
+        {
+            "src": "/storage/(.*)",
+            "dest": "/public/storage/$1"
+        },
+        {
+            "src": "/(.*)",
+            "dest": "/api/index.php"
+        }
+    ],
+
+    "env": {
+        "APP_ENV": "production",
+        "APP_DEBUG": "false",
+        "LOG_CHANNEL": "stderr",
+        "LOG_LEVEL": "warning"
+    }
+}

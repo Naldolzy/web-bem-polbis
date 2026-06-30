@@ -1,0 +1,35 @@
+# Vercel Ignore — file/folder ini tidak perlu di-bundle ke Vercel
+# (berbeda dengan .gitignore — ini khusus untuk Vercel deployment)
+
+# Testing files
+/tests
+phpunit.xml
+.phpunit.result.cache
+
+# Development tools
+/.vscode
+/.idea
+/.cursor
+/.zed
+/.editorconfig
+.phpactor.json
+
+# Log files
+/storage/logs
+
+# Cache yang bisa di-generate ulang
+/storage/framework/cache
+/storage/framework/sessions
+/storage/framework/testing
+/storage/framework/views
+
+# Homestead / Vagrant
+Homestead.json
+Homestead.yaml
+
+# Local dev only
+/storage/pail
+nixpacks.toml
+
+# Node modules (Vercel rebuild dari package.json)
+# JANGAN ignore /vendor — dibuild dari composer.json

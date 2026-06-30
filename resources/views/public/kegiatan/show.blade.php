@@ -5,6 +5,7 @@
 @if($kegiatan->foto)
 @section('og_image', asset('storage/'.$kegiatan->foto))
 @endif
+
 @section('breadcrumb_json')
 {
     "@@context": "https://schema.org",
@@ -16,6 +17,41 @@
     ]
 }
 @endsection
+
+{{-- Article Structured Data: membantu Google menampilkan rich snippet --}}
+@push('head_scripts')
+<script type="application/ld+json">
+{
+    "@context": "https://schema.org",
+    "@type": "Article",
+    "headline": "{{ addslashes($kegiatan->judul) }}",
+    "description": "{{ addslashes(Str::limit(strip_tags($kegiatan->deskripsi), 155)) }}",
+    @if($kegiatan->foto)
+    "image": ["{{ asset('storage/'.$kegiatan->foto) }}"],
+    @endif
+    "datePublished": "{{ $kegiatan->tanggal_kegiatan->toIso8601String() }}",
+    "dateModified": "{{ $kegiatan->updated_at->toIso8601String() }}",
+    "author": {
+        "@type": "Organization",
+        "name": "BEM Politeknik Bisnis Digital Indonesia",
+        "url": "{{ url('/') }}"
+    },
+    "publisher": {
+        "@type": "Organization",
+        "name": "BEM Politeknik Bisnis Digital Indonesia",
+        "logo": {
+            "@type": "ImageObject",
+            "url": "{{ asset('favicon.png') }}"
+        }
+    },
+    "mainEntityOfPage": {
+        "@type": "WebPage",
+        "@id": "{{ url('/kegiatan/'.$kegiatan->slug) }}"
+    }
+}
+</script>
+@endpush
+
 
 @section('content')
 
@@ -41,11 +77,13 @@
         <!-- Title -->
         <h1 class="font-display font-black text-4xl sm:text-5xl text-slate-900 leading-tight mb-6">{{ $kegiatan->judul }}</h1>
 
-        <!-- Featured Image -->
+        {{-- Featured Image --}}
         @if($kegiatan->foto)
             <div class="rounded-3xl overflow-hidden mb-10 shadow-xl shadow-blue-900/5 ring-1 ring-slate-100" style="max-height: 500px;">
-                <img src="{{ asset('storage/'.$kegiatan->foto) }}" alt="{{ $kegiatan->judul }}"
-                     class="w-full h-full object-cover">
+                <img src="{{ asset('storage/'.$kegiatan->foto) }}"
+                     alt="Foto kegiatan {{ $kegiatan->judul }} - BEM Polbis"
+                     class="w-full h-full object-cover"
+                     loading="lazy">
             </div>
         @endif
 

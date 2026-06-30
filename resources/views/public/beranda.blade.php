@@ -121,8 +121,11 @@
                     <article class="card-kegiatan reveal">
                         <div class="relative overflow-hidden" style="height: 200px;">
                             @if($item->foto)
-                                <img src="{{ asset('storage/'.$item->foto) }}" alt="{{ $item->judul }}"
-                                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-110">
+                                <img src="{{ asset('storage/'.$item->foto) }}"
+                                     alt="Foto kegiatan {{ $item->judul }} - BEM Polbis"
+                                     class="w-full h-full object-cover transition-transform duration-500 hover:scale-110"
+                                     loading="lazy">
+
                             @else
                                 <div class="w-full h-full bg-gradient-to-br from-blue-700 to-blue-800 flex items-center justify-center">
                                     <svg class="w-16 h-16 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">

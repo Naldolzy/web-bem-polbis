@@ -1,4 +1,5 @@
 *.log
+server.log
 .DS_Store
 .env
 .env.backup
@@ -16,7 +17,7 @@
 /node_modules
 /public/build
 /public/hot
-/public/storage
+# /public/storage — sengaja dibuka agar public/storage/.gitkeep bisa di-commit untuk Vercel
 /storage/*.key
 /storage/pail
 /vendor
