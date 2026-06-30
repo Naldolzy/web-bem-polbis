@@ -20,7 +20,7 @@ server.log
 # /public/storage — sengaja dibuka agar public/storage/.gitkeep bisa di-commit untuk Vercel
 /storage/*.key
 /storage/pail
-/vendor
+# /vendor — sengaja dibuka agar bisa di-commit ke GitHub untuk Vercel deployment
 _ide_helper.php
 Homestead.json
 Homestead.yaml
