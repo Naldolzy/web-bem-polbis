@@ -37,25 +37,29 @@ class ProfilController extends Controller
             ProfilBem::set($field, $request->input($field, ''));
         }
 
-        // Handle logo BEM upload
-        if ($request->hasFile('logo_bem')) {
-            $old = ProfilBem::getValue('logo_bem');
-            if ($old) Storage::delete($old);
-            ProfilBem::set('logo_bem', $request->file('logo_bem')->store('profil'));
-        }
+        try {
+            // Handle logo BEM upload
+            if ($request->hasFile('logo_bem')) {
+                $old = ProfilBem::getValue('logo_bem');
+                if ($old) Storage::delete($old);
+                ProfilBem::set('logo_bem', $request->file('logo_bem')->store('profil'));
+            }
 
-        // Handle logo kampus upload
-        if ($request->hasFile('logo_kampus')) {
-            $old = ProfilBem::getValue('logo_kampus');
-            if ($old) Storage::delete($old);
-            ProfilBem::set('logo_kampus', $request->file('logo_kampus')->store('profil'));
-        }
+            // Handle logo kampus upload
+            if ($request->hasFile('logo_kampus')) {
+                $old = ProfilBem::getValue('logo_kampus');
+                if ($old) Storage::delete($old);
+                ProfilBem::set('logo_kampus', $request->file('logo_kampus')->store('profil'));
+            }
 
-        // Handle foto ketua upload
-        if ($request->hasFile('foto_ketua')) {
-            $old = ProfilBem::getValue('foto_ketua');
-            if ($old) Storage::delete($old);
-            ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil'));
+            // Handle foto ketua upload
+            if ($request->hasFile('foto_ketua')) {
+                $old = ProfilBem::getValue('foto_ketua');
+                if ($old) Storage::delete($old);
+                ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil'));
+            }
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal upload ke S3: ' . $e->getMessage());
         }
 
         return back()->with('success', 'Profil BEM berhasil diperbarui!');
@@ -68,11 +72,15 @@ class ProfilController extends Controller
             abort(404);
         }
 
-        $path = ProfilBem::getValue($key);
-        if ($path) {
-            Storage::delete($path);
+        try {
+            $path = ProfilBem::getValue($key);
+            if ($path) {
+                Storage::delete($path);
+            }
+            ProfilBem::set($key, '');
+        } catch (\Exception $e) {
+            return back()->with('error', 'Gagal hapus dari S3: ' . $e->getMessage());
         }
-        ProfilBem::set($key, '');
 
         return back()->with('success', ucfirst(str_replace('_', ' ', $key)) . ' berhasil dihapus.');
     }
