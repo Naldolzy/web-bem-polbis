@@ -150,8 +150,10 @@
                 <!-- Logo -->
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
                     @if(!empty($profil_layout['logo_bem']))
-                        <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-14 w-auto max-w-[160px] object-contain rounded-lg">
+                        <div class="h-10 w-10 flex-shrink-0 flex items-center justify-center overflow-hidden rounded-xl">
+                            <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
+                                class="h-full w-full object-contain scale-[1.35]">
+                        </div>
                     @else
                         <div
                             class="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center shadow-lg">
@@ -268,8 +270,10 @@
                 <!-- Kiri: BEM -->
                 <div class="flex items-center gap-4">
                     @if(!empty($profil_layout['logo_bem']))
-                        <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-16 w-16 object-contain rounded-full bg-white p-1 flex-shrink-0 shadow-lg">
+                        <div class="h-12 w-12 rounded-full bg-white flex items-center justify-center overflow-hidden flex-shrink-0 shadow-lg">
+                            <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
+                                class="h-full w-full object-contain scale-[1.35]">
+                        </div>
                     @else
                         <div
                             class="w-12 h-12 rounded-full bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center flex-shrink-0 shadow-lg">
@@ -309,8 +313,10 @@
                             @endif
                         </div>
                         @if(!empty($profil_layout['logo_kampus']))
-                            <img src="{{ Storage::url($profil_layout['logo_kampus']) }}" alt="Logo Kampus"
-                                class="h-16 w-16 object-contain rounded-full bg-white p-1 flex-shrink-0 shadow-lg">
+                            <div class="h-12 w-12 rounded-full bg-white flex items-center justify-center overflow-hidden flex-shrink-0 shadow-lg">
+                                <img src="{{ Storage::url($profil_layout['logo_kampus']) }}" alt="Logo Kampus"
+                                    class="h-full w-full object-contain scale-[1.35]">
+                            </div>
                         @else
                             <div
                                 class="w-12 h-12 rounded-full bg-white flex items-center justify-center flex-shrink-0 shadow-lg">
