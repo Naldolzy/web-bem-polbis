@@ -77,7 +77,7 @@
                         @if(!empty($profil['logo_bem']))
                             <img src="{{ Storage::url($profil['logo_bem']) }}"
                                  alt="Logo BEM Polbis"
-                                 class="w-40 h-40 object-contain mx-auto mb-4">
+                                 class="h-32 w-auto max-w-full object-contain mx-auto mb-4">
                         @else
                             <div class="text-8xl font-black gradient-text mb-4" style="font-family: 'Plus Jakarta Sans', sans-serif;">BEM</div>
                         @endif

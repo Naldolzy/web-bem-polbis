@@ -98,8 +98,8 @@
     {{-- Preconnect untuk CDN (speed optimization) --}}
     <link rel="preconnect" href="https://unpkg.com">
     <link rel="dns-prefetch" href="https://unpkg.com">
-    {{-- Lucide Icons — versi dikunci agar tidak ada breaking changes --}}
-    <script src="https://unpkg.com/lucide@0.511.0/dist/umd/lucide.min.js" defer></script>
+    {{-- Lucide Icons --}}
+    <script src="https://unpkg.com/lucide@0.511.0/dist/umd/lucide.min.js"></script>
 
     <style>
         #preloader {
@@ -151,7 +151,7 @@
                 <a href="{{ route('beranda') }}" class="flex items-center gap-3">
                     @if(!empty($profil_layout['logo_bem']))
                         <img src="{{ Storage::url($profil_layout['logo_bem']) }}" alt="Logo BEM"
-                            class="h-10 w-10 object-contain rounded-xl">
+                            class="h-10 w-auto max-w-[120px] object-contain rounded-lg">
                     @else
                         <div
                             class="w-10 h-10 rounded-xl bg-gradient-to-br from-lime-600 to-lime-700 flex items-center justify-center shadow-lg">
