@@ -59,7 +59,11 @@ class ProfilController extends Controller
                 ProfilBem::set('foto_ketua', $request->file('foto_ketua')->store('profil'));
             }
         } catch (\Exception $e) {
-            return back()->with('error', 'Gagal upload ke S3: ' . $e->getMessage());
+            $msg = $e->getMessage();
+            if ($e->getPrevious()) {
+                $msg .= ' | Detail AWS: ' . $e->getPrevious()->getMessage();
+            }
+            return back()->with('error', 'Gagal upload ke S3: ' . $msg);
         }
 
         return back()->with('success', 'Profil BEM berhasil diperbarui!');
@@ -79,7 +83,11 @@ class ProfilController extends Controller
             }
             ProfilBem::set($key, '');
         } catch (\Exception $e) {
-            return back()->with('error', 'Gagal hapus dari S3: ' . $e->getMessage());
+            $msg = $e->getMessage();
+            if ($e->getPrevious()) {
+                $msg .= ' | Detail AWS: ' . $e->getPrevious()->getMessage();
+            }
+            return back()->with('error', 'Gagal hapus dari S3: ' . $msg);
         }
 
         return back()->with('success', ucfirst(str_replace('_', ' ', $key)) . ' berhasil dihapus.');
