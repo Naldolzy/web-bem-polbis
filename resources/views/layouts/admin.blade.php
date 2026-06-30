@@ -198,24 +198,25 @@
         // Init Lucide Icons
         lucide.createIcons();
 
-        // Global File Size Validation (Vercel 4.5MB Payload Limit)
+        // Global Payload Size Validation (Vercel 4.5MB Limit)
         document.querySelectorAll('form').forEach(form => {
             form.addEventListener('submit', function(e) {
-                const fileInputs = form.querySelectorAll('input[type="file"]');
-                let totalSize = 0;
-                
-                fileInputs.forEach(input => {
-                    if (input.files && input.files.length > 0) {
-                        for (let i = 0; i < input.files.length; i++) {
-                            totalSize += input.files[i].size;
-                        }
-                    }
-                });
+                const formData = new FormData(form);
+                let totalPayloadSize = 0;
 
-                // 4.3 MB limit untuk ngasih ruang ke text/form data lain
-                if (totalSize > 4300000) {
+                for (let [key, value] of formData.entries()) {
+                    if (value instanceof File) {
+                        totalPayloadSize += value.size;
+                    } else {
+                        // Calculate byte size of text (like Base64 images from Quill)
+                        totalPayloadSize += new Blob([value]).size;
+                    }
+                }
+
+                // 4.3 MB limit
+                if (totalPayloadSize > 4300000) {
                     e.preventDefault();
-                    alert('⚠️ GAGAL UPLOAD: Ukuran gambar terlalu besar!\n\nBatas maksimal total ukuran gambar adalah 4.3 MB (karena limit Vercel). Silakan kompres gambar Anda terlebih dahulu menggunakan web seperti tinypng.com atau iloveimg.com.');
+                    alert('⚠️ GAGAL DISIMPAN: Total ukuran data terlalu besar!\n\nBatas maksimal dari Vercel adalah 4.3 MB. Jika Anda memasukkan (paste) gambar langsung ke dalam teks, tolong hapus dan kompres gambarnya terlebih dahulu (maksimal 1-2MB per gambar).');
                 }
             });
         });
