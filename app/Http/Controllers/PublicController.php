@@ -57,7 +57,8 @@ class PublicController extends Controller
                 ->limit(3)
                 ->get();
 
-            return view('public.kegiatan.show', compact('profil', 'kegiatan', 'related'));
+            // Call ->render() to force Blade compilation inside the try-catch
+            return response(view('public.kegiatan.show', compact('profil', 'kegiatan', 'related'))->render());
         } catch (\Throwable $e) {
             dd([
                 'error_message' => $e->getMessage(),
